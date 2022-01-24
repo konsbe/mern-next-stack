@@ -1,0 +1,51 @@
+.navBar{
+    width: 100%;
+    background-color: #1976d2!important;
+}
+.navbarContainer{
+
+    width: 100%;
+}
+.phoneBar{
+    // width: ;
+    height: 100%;
+    z-index: 4;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    padding-top: 10rem;
+
+}
+.icons{
+    margin-left: 0.7rem;
+}
+.burger{
+    margin-left:-0.5rem;
+    color: white!important;
+    // margin-left: 1px;
+
+
+    // margin-left:-1rem;
+}
+
+@media (min-width:901px) {
+    .burger{
+        display: none;
+
+    }
+    .colorButtons{
+
+        color: whitesmoke!important;
+    }
+
+}
+@media (max-width:900px) {
+    .colorButtons{
+        color: whitesmoke!important;
+    }
+    .phoneBut{
+
+        justify-content:flex-end!important;
+        padding: 1rem!important;
+    }
+}

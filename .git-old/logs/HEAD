@@ -1,0 +1,81 @@
+0000000000000000000000000000000000000000 2bdd8f4d89858b0c74a7838ea69bf37b4ba1f118 konsbe <kons.be@outlook.com> 1642530566 +0200	clone: from git@github.com:konsbe/MERN-STACK-web-app.git
+2bdd8f4d89858b0c74a7838ea69bf37b4ba1f118 75c8f29707a7d04e3803ddfe5800b432dc6b13cc konsbe <kons.be@outlook.com> 1642531031 +0200	checkout: moving from main to headmaster
+75c8f29707a7d04e3803ddfe5800b432dc6b13cc f6836729fd492ac57a645fd97cd145bbd84f4f5a konsbe <kons.be@outlook.com> 1642531114 +0200	commit: first commit
+f6836729fd492ac57a645fd97cd145bbd84f4f5a 75c8f29707a7d04e3803ddfe5800b432dc6b13cc konsbe <kons.be@outlook.com> 1642531264 +0200	checkout: moving from headmaster to main-branch
+75c8f29707a7d04e3803ddfe5800b432dc6b13cc 2bdd8f4d89858b0c74a7838ea69bf37b4ba1f118 konsbe <kons.be@outlook.com> 1642531428 +0200	checkout: moving from main-branch to main
+2bdd8f4d89858b0c74a7838ea69bf37b4ba1f118 f6836729fd492ac57a645fd97cd145bbd84f4f5a konsbe <kons.be@outlook.com> 1642531480 +0200	checkout: moving from main to headmaster
+f6836729fd492ac57a645fd97cd145bbd84f4f5a 2bdd8f4d89858b0c74a7838ea69bf37b4ba1f118 konsbe <kons.be@outlook.com> 1642531489 +0200	rebase: checkout main
+2bdd8f4d89858b0c74a7838ea69bf37b4ba1f118 20eab758a8d16ea382ace9168e5c92173a9510db konsbe <kons.be@outlook.com> 1642531500 +0200	rebase: first initial commit to mern NEXT js
+20eab758a8d16ea382ace9168e5c92173a9510db c8ebaf4d6c6a2707411554c3517f46ccd6695446 konsbe <kons.be@outlook.com> 1642531500 +0200	rebase: first commit
+c8ebaf4d6c6a2707411554c3517f46ccd6695446 047de082ed26985e9848cb4295611046b88fba2d konsbe <kons.be@outlook.com> 1642531500 +0200	rebase: making Navbar
+047de082ed26985e9848cb4295611046b88fba2d b59691a2a9933b4ddf5742c63ba98069bac28a41 konsbe <kons.be@outlook.com> 1642531500 +0200	rebase: navbar with material ui
+b59691a2a9933b4ddf5742c63ba98069bac28a41 ce8e8a21d52a7250112db952c1d16d640be08e6a konsbe <kons.be@outlook.com> 1642531500 +0200	rebase: navbar looks great:
+ce8e8a21d52a7250112db952c1d16d640be08e6a 4df525523a119b95833a1ffb21282aaa64f402d5 konsbe <kons.be@outlook.com> 1642531500 +0200	rebase: fix images favicon and thumbnail:
+4df525523a119b95833a1ffb21282aaa64f402d5 6e2e72b853e7fd1356bc1e9ac46bac523d5d9592 konsbe <kons.be@outlook.com> 1642531500 +0200	rebase: finish my navbar slideBar etc
+6e2e72b853e7fd1356bc1e9ac46bac523d5d9592 2d0077b10fece402824e8a21ebf3117151a2f1ed konsbe <kons.be@outlook.com> 1642531500 +0200	rebase: done with it
+2d0077b10fece402824e8a21ebf3117151a2f1ed d947981c3e13604c22568ff7cc44f852a3d070e7 konsbe <kons.be@outlook.com> 1642531500 +0200	rebase: add weather button
+d947981c3e13604c22568ff7cc44f852a3d070e7 666f16843ce01aeb5fa7c54ea15c662d57d69f04 konsbe <kons.be@outlook.com> 1642531500 +0200	rebase: meta newzzzzz
+666f16843ce01aeb5fa7c54ea15c662d57d69f04 8b55936766404ca5ea24ea758594afea1e92e5c4 konsbe <kons.be@outlook.com> 1642531502 +0200	rebase: signupForm loginForm
+8b55936766404ca5ea24ea758594afea1e92e5c4 79abb17880c116204493ffa417bc7dbc879a1adf konsbe <kons.be@outlook.com> 1642531502 +0200	rebase: states in the form are ready!
+79abb17880c116204493ffa417bc7dbc879a1adf 1fdf42fb3379ee12ab07bc611fb34beb152382d0 konsbe <kons.be@outlook.com> 1642531502 +0200	rebase: mognoose setUp
+1fdf42fb3379ee12ab07bc611fb34beb152382d0 b20c6194db660c1023c791292d681636948a6c29 konsbe <kons.be@outlook.com> 1642531502 +0200	rebase: mongoose is setted upgit add .git add .
+b20c6194db660c1023c791292d681636948a6c29 c142132477d2798779ede726bafeae36f98744c8 konsbe <kons.be@outlook.com> 1642531502 +0200	rebase: setUp is ready
+c142132477d2798779ede726bafeae36f98744c8 4b68e0de22a0bebd96fbae6668e045f57d4430bb konsbe <kons.be@outlook.com> 1642531502 +0200	rebase: basic form:
+4b68e0de22a0bebd96fbae6668e045f57d4430bb 83149c80ab54ae7dc2d7664b33bc03f29bd03af9 konsbe <kons.be@outlook.com> 1642531503 +0200	rebase: first commit on expressApp
+83149c80ab54ae7dc2d7664b33bc03f29bd03af9 b1279ad0b46b46b8783b7843b4b86e32c75fb379 konsbe <kons.be@outlook.com> 1642531503 +0200	rebase: asddas
+b1279ad0b46b46b8783b7843b4b86e32c75fb379 3e68e94a8287488acc0efae7a114f1c55e433f2b konsbe <kons.be@outlook.com> 1642531503 +0200	rebase: ASddass
+3e68e94a8287488acc0efae7a114f1c55e433f2b d3421db1853cb5a8beb95ba8caf875f658587b68 konsbe <kons.be@outlook.com> 1642531503 +0200	rebase: i think we are good to try ????
+d3421db1853cb5a8beb95ba8caf875f658587b68 41720e873f31335c9aeb242ad12accf3bbc2b2ea konsbe <kons.be@outlook.com> 1642531503 +0200	rebase: reducer i think is ready!
+41720e873f31335c9aeb242ad12accf3bbc2b2ea 64f758cce8bbd00126571597a24146dff6624e1b konsbe <kons.be@outlook.com> 1642531503 +0200	rebase: redux setUp seems good
+64f758cce8bbd00126571597a24146dff6624e1b a461584b6cccb1059f6dd13bb06020ba998af9ba konsbe <kons.be@outlook.com> 1642531503 +0200	rebase: project is not defined
+a461584b6cccb1059f6dd13bb06020ba998af9ba a6986498899b4c656b953808fe3bb695e6a26403 konsbe <kons.be@outlook.com> 1642531503 +0200	rebase: first post is CREATEDgit add .git add .git add .git add .git add .git add .git add .git add .git add .git add .git add .!
+a6986498899b4c656b953808fe3bb695e6a26403 7101bb890a5fa07539f5f9d8899e4498dcd736bf konsbe <kons.be@outlook.com> 1642531503 +0200	rebase: data fetching on the screen
+7101bb890a5fa07539f5f9d8899e4498dcd736bf 3797cbaaef2f1ca697be656a8e5728cec2b39169 konsbe <kons.be@outlook.com> 1642531503 +0200	rebase: detching_data_from_query_params:
+3797cbaaef2f1ca697be656a8e5728cec2b39169 a26ffd0739bd335fc304e4523cee4ec0cc0632a5 konsbe <kons.be@outlook.com> 1642531503 +0200	rebase: fetch wtf??
+a26ffd0739bd335fc304e4523cee4ec0cc0632a5 d29be228c47aa8d84f9bb89bb32b1f2c22c0730b konsbe <kons.be@outlook.com> 1642531510 +0200	rebase: projects/api
+d29be228c47aa8d84f9bb89bb32b1f2c22c0730b 56164e01a72d2736f4ddb1f85b2e9744b179d094 konsbe <kons.be@outlook.com> 1642531510 +0200	rebase: projects/api
+56164e01a72d2736f4ddb1f85b2e9744b179d094 feb29f802febaa30896f5c7436868ddc644fe866 konsbe <kons.be@outlook.com> 1642531510 +0200	rebase: blaj
+feb29f802febaa30896f5c7436868ddc644fe866 e35becab4baedb5fc7571e09cc8078bceb63a793 konsbe <kons.be@outlook.com> 1642531510 +0200	rebase: looks great folder handling
+e35becab4baedb5fc7571e09cc8078bceb63a793 d294ec101ba153e0e81bd966a360291d79482850 konsbe <kons.be@outlook.com> 1642531510 +0200	rebase: finish the decoration of project cardszzz
+d294ec101ba153e0e81bd966a360291d79482850 344da4f939b274640fcf700907d83a1ba81557dd konsbe <kons.be@outlook.com> 1642531510 +0200	rebase: good to go
+344da4f939b274640fcf700907d83a1ba81557dd 8f703e4e03b12a6b4e5dc6f009b4ee356d0fc40e konsbe <kons.be@outlook.com> 1642531514 +0200	rebase: form setUp is ready
+8f703e4e03b12a6b4e5dc6f009b4ee356d0fc40e 05f7c9ede5bd6ef8dd61a0e40172e27d9489b91f konsbe <kons.be@outlook.com> 1642531514 +0200	rebase: backgroundColor
+05f7c9ede5bd6ef8dd61a0e40172e27d9489b91f 10f4f448ea9eb6e21d0ce41625575025182089be konsbe <kons.be@outlook.com> 1642531514 +0200	rebase: fix the one bag
+10f4f448ea9eb6e21d0ce41625575025182089be 7d7e9013843f9ad3479486139f77941d94210bd8 konsbe <kons.be@outlook.com> 1642531514 +0200	rebase: postData
+7d7e9013843f9ad3479486139f77941d94210bd8 19bd10bc4ad1ebe22267db56920d10f42212b6c0 konsbe <kons.be@outlook.com> 1642531514 +0200	rebase: update is ready and no errors occurs
+19bd10bc4ad1ebe22267db56920d10f42212b6c0 11c61cd4596e74d8ad3532880e96abb16c7273c9 konsbe <kons.be@outlook.com> 1642531514 +0200	rebase: kavla animation to body
+11c61cd4596e74d8ad3532880e96abb16c7273c9 564c8c088a6ad78e86247d2f994b77ec87d6dc95 konsbe <kons.be@outlook.com> 1642531514 +0200	rebase: update is donegit add .!
+564c8c088a6ad78e86247d2f994b77ec87d6dc95 009409c6f993a41121a0b0a9020ddcb25fcf7c8e konsbe <kons.be@outlook.com> 1642531514 +0200	rebase: almost there
+009409c6f993a41121a0b0a9020ddcb25fcf7c8e 61e4c033796c19c483cf54f82a1d5b9c61f99741 konsbe <kons.be@outlook.com> 1642531514 +0200	rebase: adsads
+61e4c033796c19c483cf54f82a1d5b9c61f99741 e443b594408d934448a61f9c6d3fc6af9632e7dd konsbe <kons.be@outlook.com> 1642531514 +0200	rebase: first commit
+e443b594408d934448a61f9c6d3fc6af9632e7dd 7f19fe65fac3da2517eafcd2c730304f0d8b715f konsbe <kons.be@outlook.com> 1642531515 +0200	rebase: first commit
+7f19fe65fac3da2517eafcd2c730304f0d8b715f 9bd5c176094308297c5935048bd550602557771d konsbe <kons.be@outlook.com> 1642531522 +0200	rebase: first commit
+9bd5c176094308297c5935048bd550602557771d 9bd5c176094308297c5935048bd550602557771d konsbe <kons.be@outlook.com> 1642531489 +0200	rebase finished: returning to refs/heads/headmaster
+9bd5c176094308297c5935048bd550602557771d 2bdd8f4d89858b0c74a7838ea69bf37b4ba1f118 konsbe <kons.be@outlook.com> 1642531533 +0200	checkout: moving from headmaster to main
+2bdd8f4d89858b0c74a7838ea69bf37b4ba1f118 9bd5c176094308297c5935048bd550602557771d konsbe <kons.be@outlook.com> 1642531544 +0200	merge headmaster: Fast-forward
+9bd5c176094308297c5935048bd550602557771d 30552221dcc43df3286b783e7364e8b8eea26b1a konsbe <kons.be@outlook.com> 1642532074 +0200	commit: Asdasdasd
+30552221dcc43df3286b783e7364e8b8eea26b1a 9bd5c176094308297c5935048bd550602557771d konsbe <kons.be@outlook.com> 1642532142 +0200	checkout: moving from main to headmaster
+9bd5c176094308297c5935048bd550602557771d 1bbaeab9a4e6c97911595e69b5cc52038d64f0c4 konsbe <kons.be@outlook.com> 1642536411 +0200	commit: first initial commit from my linux VIRTUAL MACHINE
+1bbaeab9a4e6c97911595e69b5cc52038d64f0c4 e67d15a64e67a4355ea60f673981eba305294970 konsbe <kons.be@outlook.com> 1642615067 +0200	commit: delete is done
+e67d15a64e67a4355ea60f673981eba305294970 a873c67087372f7d2bcaaa7706c2f9dfc04f3ae1 konsbe <kons.be@outlook.com> 1642672109 +0200	commit: like count is done with ome issues
+a873c67087372f7d2bcaaa7706c2f9dfc04f3ae1 12d3c9c66260299500623c2953497eaa9772ccec konsbe <kons.be@outlook.com> 1642693484 +0200	commit: editing the blog page
+12d3c9c66260299500623c2953497eaa9772ccec d22def88fdb0423f60c2d95ecfc15395a988ebc6 konsbe <kons.be@outlook.com> 1642694412 +0200	commit: basic form
+d22def88fdb0423f60c2d95ecfc15395a988ebc6 072ae1d5f41022f17f89a79889feef6a614a41ec konsbe <kons.be@outlook.com> 1642696694 +0200	commit: comment form with state is ready
+072ae1d5f41022f17f89a79889feef6a614a41ec 564a4715bdce48bbca393dcfe7e2e4680aeebe66 konsbe <kons.be@outlook.com> 1642700214 +0200	commit: public:true
+564a4715bdce48bbca393dcfe7e2e4680aeebe66 c3b3b796d6cdafb00c6b76940f57cc37f0ec00ca konsbe <kons.be@outlook.com> 1642700580 +0200	commit: some changes
+c3b3b796d6cdafb00c6b76940f57cc37f0ec00ca 9b362d0b630d84b5add4ee564c0c0c75da9efab0 konsbe <kons.be@outlook.com> 1642701808 +0200	commit: some buggs
+9b362d0b630d84b5add4ee564c0c0c75da9efab0 53642fc1ff2408f341985064ab7d7201449a176f konsbe <kons.be@outlook.com> 1642702554 +0200	commit: shown
+53642fc1ff2408f341985064ab7d7201449a176f e97f7863c3d8c2d73e810ec5fe7f1f3964a12768 konsbe <kons.be@outlook.com> 1642703238 +0200	commit: messages-comments section is ready
+e97f7863c3d8c2d73e810ec5fe7f1f3964a12768 33e831c3fd2f972f5e27eb54e777a12c0789c04e konsbe <kons.be@outlook.com> 1642703562 +0200	commit: done ?
+33e831c3fd2f972f5e27eb54e777a12c0789c04e 76f6424178a9505a52b247bfc72785faea82f88b konsbe <kons.be@outlook.com> 1642778165 +0200	commit: ready to go for cryptos
+76f6424178a9505a52b247bfc72785faea82f88b 1675f15b5390fd4cfeed115b643821a5fcb8ca56 konsbe <kons.be@outlook.com> 1642778550 +0200	commit: bt is ready
+1675f15b5390fd4cfeed115b643821a5fcb8ca56 66241dca50e368465243a7fc105ce055189bac91 konsbe <kons.be@outlook.com> 1642787982 +0200	commit: redux store is ready
+66241dca50e368465243a7fc105ce055189bac91 e904a1b968c3cfb5ee6b0406f6fb9345f5ea0fb6 konsbe <kons.be@outlook.com> 1642789211 +0200	commit: styling my Crypto card:
+e904a1b968c3cfb5ee6b0406f6fb9345f5ea0fb6 b570f0a32f6e9b793e711f7c5f97e5b640dec49d konsbe <kons.be@outlook.com> 1642969106 +0200	commit: fixing my bar
+b570f0a32f6e9b793e711f7c5f97e5b640dec49d 6cc7de86656ce73a8a01088c6823fa68f9712962 konsbe <kons.be@outlook.com> 1642973708 +0200	commit: search os almost done
+6cc7de86656ce73a8a01088c6823fa68f9712962 67800e57420e1668e72264480137543bbc6fdd5a konsbe <kons.be@outlook.com> 1642978104 +0200	commit: ready to fetch some news also
+67800e57420e1668e72264480137543bbc6fdd5a 5be41fbb662a1a4ccdc15b1b4c7dc5b89eff3578 konsbe <kons.be@outlook.com> 1643028171 +0200	commit: weather api
+5be41fbb662a1a4ccdc15b1b4c7dc5b89eff3578 dccb2a307d2ca187ac8394490e4ce37bdda27654 konsbe <kons.be@outlook.com> 1643031383 +0200	commit: finaly fetch the weather
+dccb2a307d2ca187ac8394490e4ce37bdda27654 63234370efc91c8e87a2bb89d6535da0823989a4 konsbe <kons.be@outlook.com> 1643034843 +0200	commit: return value is ready
+63234370efc91c8e87a2bb89d6535da0823989a4 dc5dcc3b4785f5403c23a7a75368e9491b8bf643 konsbe <kons.be@outlook.com> 1643040156 +0200	commit: finally found my data uptodate
+                                                                                                                                                  

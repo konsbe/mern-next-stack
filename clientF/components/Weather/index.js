@@ -1,0 +1,101 @@
+import React, { useEffect, useState } from "react";
+import styles from "./../styles/Weather.module.scss";
+
+import {
+  Card,
+  CardContent,
+  Typography,
+  CircularProgress,
+  Avatar,
+} from "@material-ui/core/";
+import CardMedia from "@mui/material/CardMedia";
+
+import WeatherForm from "./WeatherForm";
+
+import {
+  fetchCurrentWeather,
+  fetchCurrentWeatherBool,
+} from "../../redux/Weather/api/index";
+
+function Weather() {
+  const [type, setType] = useState(false);
+  const [descr, setDescr] = useState("");
+  const [main, setMain] = useState("");
+  const [windSpeed, setWindSpeed] = useState("");
+  const [windDeg, setWindDeg] = useState("");
+  const [temp, setTemp] = useState("");
+  const [imgMain, setImgMain] = useState("");
+
+  const list = [];
+
+  const pull_data = async (location) => {
+    list.splice(0, list.length);
+    console.log(location);
+    const bool = await fetchCurrentWeatherBool(location);
+    if (bool === "resolve") {
+      const data = await fetchCurrentWeather(location);
+      setType(true);
+      list.push(data);
+      setDescr(list[0].data.weather[0].description);
+      setMain(list[0].data.weather[0].main);
+      setImgMain(
+        `http://openweathermap.org/img/wn/${list[0].data.weather[0].icon}@2x.png`
+      );
+      setWindSpeed(list[0].data.wind.speed);
+      setWindDeg(list[0].data.wind.deg);
+      setTemp(list[0].data.main.temp - 273.15);
+    } else {
+      setType(false);
+    }
+
+    console.log(list, list.length);
+  };
+
+  return (
+    <Card className={styles.card}>
+      <CardMedia
+        title="cryptotitle"
+        component="img"
+        src="https://image.shutterstock.com/mosaic_250/507955/281515874/stock-photo-weather-forecast-background-variety-weather-conditions-bright-sun-and-blue-sky-dark-stormy-sky-281515874.jpg"
+        className={styles.media}
+      />
+      <WeatherForm func={pull_data} />
+
+      <div className={styles.overlay}>
+        <Typography variant="body2">weather</Typography>
+      </div>
+      {!type ? (
+        <CircularProgress />
+      ) : (
+        <div>
+          <Typography className={styles.title} variant="body2" gutterBottom>
+            wind: {windSpeed} {windDeg}
+          </Typography>
+
+          <Typography className={styles.title} variant="body2" gutterBottom>
+            temperature: {parseFloat(temp).toFixed(2)}
+          </Typography>
+          <Typography className={styles.title} variant="body2" gutterBottom>
+            description: {descr}, {main}
+            <Avatar src={imgMain} />
+          </Typography>
+          <CardContent>
+            <Typography variant="body2" gutterBottom>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+              luctus ut est sed faucibus. Duis bibendum ac ex vehicula laoreet.
+              Suspendisse congue vulputate lobortis. Pellentesque at interdum
+              tortor. Quisque arcu quam, malesuada vel mauris et, posuere
+              sagittis ipsum. Aliquam ultricies a ligula nec faucibus. In elit
+              metus, efficitur lobortis nisi quis, molestie porttitor metus.
+              Pellentesque et neque risus. Aliquam vulputate, mauris vitae
+              tincidunt interdum, mauris mi vehicula urna, nec feugiat quam
+              lectus vitae ex.
+            </Typography>
+          </CardContent>
+        </div>
+      )}
+    </Card>
+  );
+}
+
+export default Weather;
