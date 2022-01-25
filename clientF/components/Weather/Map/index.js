@@ -1,5 +1,5 @@
 import React from "react";
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 
 const containerStyle = {
   width: "100%",
@@ -11,41 +11,48 @@ function Map({ latitude, longitude }) {
     lat: latitude,
     lng: longitude,
   };
-    console.log(center, "center");
-    const { isLoaded } = useJsApiLoader({
-      id: "google-map-script",
-      // id: "liquid-sylph-339314",
-      googleMapsApiKey: "AIzaSyClDGpur3KtYNHpABdDTVTiAsdHcrt5nuA",
-    });
+  console.log(center, "center");
+  const { isLoaded } = useJsApiLoader({
+    id: "google-map-script",
+    // id: "liquid-sylph-339314",
+    googleMapsApiKey: "AIzaSyClDGpur3KtYNHpABdDTVTiAsdHcrt5nuA",
+  });
 
-    const [map, setMap] = React.useState(null);
+  const [map, setMap] = React.useState(null);
 
-    const onLoad = React.useCallback(function callback(map) {
-      const bounds = new window.google.maps.LatLngBounds();
-      map.fitBounds(bounds);
-      setMap(map);
-    }, []);
+  const onLoad = React.useCallback(function callback(map) {
+    const bounds = new window.google.maps.LatLngBounds();
+    map.fitBounds(bounds);
+    setMap(map);
+  }, []);
 
-    const onUnmount = React.useCallback(function callback(map) {
-      setMap(null);
-    }, []);
+  const onUnmount = React.useCallback(function callback(map) {
+    setMap(null);
+  }, []);
 
-    return isLoaded ? (
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={{
+  return isLoaded ? (
+    <GoogleMap
+      zoom={10}
+      mapContainerStyle={containerStyle}
+      center={{
+        lat: latitude,
+        lng: longitude,
+      }}
+      defaultCenter={{ lat: 37.9795, lng: 0, lon: 23.7162 }}
+      onLoad={onLoad}
+      onUnmount={onUnmount}
+    >
+      <Marker
+        position={{
           lat: latitude,
           lng: longitude,
         }}
-        zoom={10}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
-      >
-        {/* Child components, such as markers, info windows, etc. */}
-        <></>
-      </GoogleMap>
-    ) : (
+      />
+      {/* Child components, such as markers, info windows, etc. */}
       <></>
-    );
+    </GoogleMap>
+  ) : (
+    <></>
+  );
 }
 export default React.memo(Map);

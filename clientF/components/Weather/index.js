@@ -57,6 +57,7 @@ function Weather() {
       console.log(lati, long, obj);
     } else {
       setType(false);
+      fetchCurrentWeather("athens");
     }
 
     console.log(list, list.length);
