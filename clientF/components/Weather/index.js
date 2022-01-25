@@ -34,7 +34,7 @@ function Weather() {
 
   const pull_data = async (location) => {
     list.splice(0, list.length);
-    console.log(location);
+
     const bool = await fetchCurrentWeatherBool(location);
     if (bool === "resolve") {
       const data = await fetchCurrentWeather(location);
@@ -49,8 +49,6 @@ function Weather() {
       setWindDeg(list[0].data.wind.deg);
       setTemp(list[0].data.main.temp - 273.15);
 
-      console.log(list[0].data.coord.lat, list[0].data.coord.lon);
-
       setLati(list[0].data.coord.lat);
       setLong(list[0].data.coord.lon);
     } else {
@@ -58,7 +56,6 @@ function Weather() {
       fetchCurrentWeather("athens");
     }
 
-    console.log(list, list.length);
   };
 
   return (
