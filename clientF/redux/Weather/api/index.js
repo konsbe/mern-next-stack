@@ -10,13 +10,14 @@ export function fetchCurrentWeather (location) {
     .get(url)
     .then((snapshot) => {
       console.log(snapshot);
+
     //   return snapshot;
-      const data = {bool:true}
-      resolve(snapshot, data);
+      // const data = {bool:true}
+      resolve(snapshot);
     })
     .catch((err) => {
-      const data = {bool:false}
-        reject(err, data);
+      // const data = {bool:false}
+        reject(err);
     });
     });
 };
