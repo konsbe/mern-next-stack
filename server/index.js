@@ -21,10 +21,12 @@ import {
   deleteProject,
   likeProject,
 } from "./controllers/projects.js";
+
 // import url from "./routes/blockchainR.js";
 import ProjectModel from "./models/projectModel.js";
 import projectsRoutes from "./routes/projects.js";
 import blockchainRoutes from "./routes/blockchainR.js";
+import blockchainDRoutes from "./routes/blockchainD.js";
 
 nextApp.prepare().then(() => {
   const app = express();
@@ -35,19 +37,19 @@ nextApp.prepare().then(() => {
   app.use(cors());
 
   //express routes here
+  //projects rutes
   app.use("/projects/api", projectsRoutes);
   app.use("/projects/api/likeProject/:id", projectsRoutes);
   app.patch("/projects/api/:id", updateProject);
   app.patch("/projects/api/likeProject/:id", likeProject);
   app.delete("/projects/api/:id", deleteProject);
-  // app.use("/projects/api/:id", getProject);
   app.get("/projects", async (req, res) => {
     const actualPage = "/projects";
     const number = 2;
     try {
       const projectModels = await ProjectModel.find();
       const queryParams = projectModels;
-      // console.log(queryParams, "oops server/index.js");
+
       nextApp.render(req, res, actualPage, queryParams, number);
     } catch (err) {
       res.status(401).json({ message: err.message });
@@ -55,19 +57,17 @@ nextApp.prepare().then(() => {
   });
   app.get("/about", async (req, res) => {
     const actualPage = "/about";
-    const number = 2;
+
     try {
-      // const projectModels = await ProjectModel.find();
-      // const queryParams = projectModels;
-      // console.log(queryParams, "oops server/index.js");
       nextApp.render(req, res, actualPage);
     } catch (err) {
       res.status(401).json({ message: err.message });
     }
   });
   app.post("/projects", createProject);
-
+  //blockcain routes
   app.use("/blog/blockchain/api", blockchainRoutes);
+  app.use("/blog/blockchain/desc", blockchainDRoutes);
 
   app.get("*", (req, res) => {
     return handle(req, res); // for all the react stuff

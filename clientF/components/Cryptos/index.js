@@ -11,6 +11,9 @@ import CardMedia from "@mui/material/CardMedia";
 
 import { useSelector } from "react-redux";
 
+import { getCryptoVal } from "../../redux/BlockChain/api";
+// import { fetchCurrentCryptoDesc } from "./../../redux/BlockChain/api/index";
+
 import CryptoForm from "./CryptoForm";
 
 const Cryptos = () => {
@@ -19,6 +22,7 @@ const Cryptos = () => {
     price: 0,
     symbol: "",
   });
+  const [cryptoDescr, setCryptoDescr] = useState("");
   const [bool, setBool] = useState(false);
   const [bitcoin, setBitcoin] = useState({
     name: "bitcoin",
@@ -32,7 +36,7 @@ const Cryptos = () => {
   });
   const cryptos = useSelector((state) => state.cryptos.cryptos);
 
-  const pull_data = (index, boolData) => {
+  const pull_data = async (index, boolData) => {
     if (boolData === false) {
       setBool(true);
     } else {
@@ -41,9 +45,14 @@ const Cryptos = () => {
         price: cryptos[index].quote.USD.price,
         symbol: cryptos[index].symbol,
       });
+
+      const asd = getCryptoVal(cryptos[index].symbol);
+
+      // console.log(data);
       setBool(false);
     }
   };
+  useEffect(() => {});
 
   useEffect(() => {
     if (cryptos.length > 1) {
@@ -84,6 +93,11 @@ const Cryptos = () => {
           <Typography className={styles.title} variant="body2" gutterBottom>
             {ethereum.symbol}: {parseFloat(ethereum.price).toFixed(3)} USDT
           </Typography>
+          <CardContent>
+            <Typography variant="body2" gutterBottom>
+              {cryptoDescr}
+            </Typography>
+          </CardContent>
           <CardContent>
             <Typography variant="body2" gutterBottom>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean

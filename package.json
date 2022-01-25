@@ -27,6 +27,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "framer-motion": "^5.6.0",
+    "http-proxy-middleware": "^2.0.2",
     "moment": "^2.29.1",
     "mongodb": "^4.3.0",
     "mongoose": "^6.1.7",

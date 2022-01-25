@@ -18,6 +18,60 @@ export const fetchCryptos = () => {
       });
   });
 };
+// const config = {
+
+// };
+
+
+// export const fetchCurrentCryptoDesc  = () => {
+
+//     axios({
+//       method: "GET",
+//       url: `https://pro-api.coinmarketcap.com/v1/cryptocurrency/info?CMC_PRO_API_KEY=bbc113f1-3455-4b02-8bb6-2dd3e357d85f&symbol=ADA`,
+//       headers: {
+//         "Content-type": "application/json",
+//         "Access-Control-Allow-Origin": "origin-list",
+//         "Access-Control-Allow-Origin":
+//           "https://pro-api.coinmarketcap.com/v1/cryptocurrency/info?CMC_PRO_API_KEY=bbc113f1-3455-4b02-8bb6-2dd3e357d85f&symbol=ADA",
+//       },
+//       // params,
+//     })
+//       .then((snapshot) => {
+//         console.log(snapshot.json());
+
+//         return snapshot;
+//       })
+//       .catch((err) => {
+//         return err;
+//       });
+// };
+
+
+
+
+export function fetchCurrentCryptoDesc() {
+  const url = ` /block`;
+
+    axios
+      .get(url)
+      .then((snapshot) => {
+        console.log(snapshot.json());
+
+
+        return snapshot;
+      })
+      .catch((err) => {
+        return err;
+      });
+
+};
+
+export function getCryptoVal(value) {
+
+  console.log(value, "vlaue")
+  return value
+
+};
 
 // export const fetchProjects = () => axios.get(url);
 

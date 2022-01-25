@@ -1,10 +1,6 @@
 import axios from "axios";
-import { useDispatch } from "react-redux";
-// const rp = require("request-promise");
-// const string = "bbc113f1-3455-4b02-8bb6-2dd3e357d85f";
-// export const url =
-//   "https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest?CMC_PRO_API_KEY=bbc113f1-3455-4b02-8bb6-2dd3e357d85f" +
-//   string;
+
+
 
 const requestOptions = {
   method: "GET",
@@ -20,6 +16,69 @@ const requestOptions = {
   json: true,
   gzip: true,
 };
+
+const list = []
+
+export const getBlocks = async (req, res) => {
+
+  const url =
+    "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=bbc113f1-3455-4b02-8bb6-2dd3e357d85f";
+  try {
+    axios
+      .get(url)
+      .then((result) => {
+        const snap = JSON.stringify(result.data);
+        const asd = (result.data.data);
+        // console.log("resolve", JSON.stringify(result.data.status));
+        // console.log(result);
+        asd.map((data) => list.push(data.symbol))
+        // data.push(JSON.stringify(result.data.status));
+        // console.log(data, "data");
+        res.send(result.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  } catch (err) {
+    res.status(401).json({ message: err.message });
+  }
+};
+
+
+
+export const getBlocksDescr = async (req, res) => {
+  const dataAr = []
+  list.map((value) =>{
+
+  const url =
+    `https://pro-api.coinmarketcap.com/v1/cryptocurrency/info?CMC_PRO_API_KEY=bbc113f1-3455-4b02-8bb6-2dd3e357d85f&symbol=${value}`;
+    try {
+      axios
+        .get(url)
+        .then((result) => {
+          const snap = JSON.stringify(result.data);
+          console.log (result.data)
+          // console.log(result);
+          // data.push(JSON.stringify(result.data.status));
+          // console.log(data, "data");
+          dataAr.push(result.data.data);
+          res.send(result.data.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      } catch (err) {
+        res.status(401).json({ message: err.message });
+      }
+  })
+  // if (dataAr.length > 1) {
+    // console.log(dataAr)
+    // res.send(result.data.data);
+
+  // }
+}
+
+
 
 // export const getBlocks = async (req, res) => {
 //   // const data = {};
@@ -50,24 +109,3 @@ const requestOptions = {
 //     res.status(401).json({ message: err.message });
 //   }
 // };
-export const getBlocks = async (req, res) => {
-  let data = [];
-  const url =
-    "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=bbc113f1-3455-4b02-8bb6-2dd3e357d85f";
-  try {
-    axios
-      .get(url)
-      .then((result) => {
-        const snap = JSON.stringify(result.data);
-        // console.log("resolve", JSON.stringify(result.data.status));
-        data.push(JSON.stringify(result.data.status));
-        // console.log(data, "data");
-        res.send(result.data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  } catch (err) {
-    res.status(401).json({ message: err.message });
-  }
-};
