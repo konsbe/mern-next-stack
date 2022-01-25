@@ -11,7 +11,7 @@ import CardMedia from "@mui/material/CardMedia";
 
 import { useSelector } from "react-redux";
 
-import { getCryptoVal } from "../../redux/BlockChain/api";
+
 // import { fetchCurrentCryptoDesc } from "./../../redux/BlockChain/api/index";
 
 import CryptoForm from "./CryptoForm";
@@ -46,7 +46,7 @@ const Cryptos = () => {
         symbol: cryptos[index].symbol,
       });
 
-      const asd = getCryptoVal(cryptos[index].symbol);
+      // const asd = getCryptoVal(cryptos[index].symbol);
 
       // console.log(data);
       setBool(false);

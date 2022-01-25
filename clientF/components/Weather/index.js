@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./../styles/Weather.module.scss";
+import Map from "./Map";
 
 import {
   Card,
@@ -25,6 +26,8 @@ function Weather() {
   const [windDeg, setWindDeg] = useState("");
   const [temp, setTemp] = useState("");
   const [imgMain, setImgMain] = useState("");
+  const [lati, setLati] = useState(null);
+  const [long, setLong] = useState(null);
 
   const list = [];
 
@@ -44,6 +47,11 @@ function Weather() {
       setWindSpeed(list[0].data.wind.speed);
       setWindDeg(list[0].data.wind.deg);
       setTemp(list[0].data.main.temp - 273.15);
+
+      setLati(list[0].data.coord.lat);
+      setLong(list[0].data.coord.lon);
+
+      console.log(lati, long);
     } else {
       setType(false);
     }
@@ -61,9 +69,9 @@ function Weather() {
       />
       <WeatherForm func={pull_data} />
 
-      <div className={styles.overlay}>
+      <Typography variant="h6" className={styles.overlay}>
         <Typography variant="body2">weather</Typography>
-      </div>
+      </Typography>
       {!type ? (
         <CircularProgress />
       ) : (
@@ -79,6 +87,7 @@ function Weather() {
             description: {descr}, {main}
             <Avatar src={imgMain} />
           </Typography>
+          <Map latitude={lati} longitude={long} />
         </>
       )}
       <CardContent>

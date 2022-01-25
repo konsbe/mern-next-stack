@@ -6,7 +6,7 @@ import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 
 function WeatherForm({ func }) {
-  const [location, setLocation] = useState("loutsa");
+  const [location, setLocation] = useState("");
   const resetForm = () => {
     setLocation("");
   };

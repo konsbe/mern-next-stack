@@ -67,7 +67,7 @@ nextApp.prepare().then(() => {
   app.post("/projects", createProject);
   //blockcain routes
   app.use("/blog/blockchain/api", blockchainRoutes);
-  app.use("/blog/blockchain/desc", blockchainDRoutes);
+  // app.use("/blog/blockchain/desc", blockchainDRoutes);
 
   app.get("*", (req, res) => {
     return handle(req, res); // for all the react stuff

@@ -49,23 +49,6 @@ export const fetchCryptos = () => {
 
 
 
-export function fetchCurrentCryptoDesc() {
-  const url = ` /block`;
-
-    axios
-      .get(url)
-      .then((snapshot) => {
-        console.log(snapshot.json());
-
-
-        return snapshot;
-      })
-      .catch((err) => {
-        return err;
-      });
-
-};
-
 export function getCryptoVal(value) {
 
   console.log(value, "vlaue")

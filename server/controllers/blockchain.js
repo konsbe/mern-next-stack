@@ -46,37 +46,27 @@ export const getBlocks = async (req, res) => {
 
 
 
-export const getBlocksDescr = async (req, res) => {
-  const dataAr = []
-  list.map((value) =>{
+export const getBlocksDescr = async (req, res, value) => {
+  const dataAr = [];
 
-  const url =
-    `https://pro-api.coinmarketcap.com/v1/cryptocurrency/info?CMC_PRO_API_KEY=bbc113f1-3455-4b02-8bb6-2dd3e357d85f&symbol=${value}`;
+  list.map((value) => {
+    const url = `https://pro-api.coinmarketcap.com/v1/cryptocurrency/info?CMC_PRO_API_KEY=bbc113f1-3455-4b02-8bb6-2dd3e357d85f&symbol=${value}`;
     try {
       axios
         .get(url)
         .then((result) => {
           const snap = JSON.stringify(result.data);
-          console.log (result.data)
-          // console.log(result);
-          // data.push(JSON.stringify(result.data.status));
-          // console.log(data, "data");
-          dataAr.push(result.data.data);
-          res.send(result.data.data);
+          const obj = { name: vlaue, descr: result.data.data.description };
+          console.log(obj);
         })
         .catch((err) => {
           console.log(err);
         });
-      } catch (err) {
-        res.status(401).json({ message: err.message });
-      }
-  })
-  // if (dataAr.length > 1) {
-    // console.log(dataAr)
-    // res.send(result.data.data);
-
-  // }
-}
+    } catch (err) {
+      res.status(401).json({ message: err.message });
+    }
+  });
+};
 
 
 
