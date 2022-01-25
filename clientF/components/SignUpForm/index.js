@@ -38,6 +38,7 @@ function SignUpForm() {
           color="success"
           placeholder="FirsName"
           variant="standard"
+          autoFocus
           sx={{ width: 200, input: { color: "white" } }}
           onChange={(e) => setUsername(e.target.value)}
           // className={styles.inputControl}

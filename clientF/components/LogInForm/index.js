@@ -20,14 +20,14 @@ function LoginForm() {
         type="email"
         placeholder="example@email.com"
         variant="standard"
-        sx={{ width: 200 }}
+        sx={{ width: 200, input: { color: "white" } }}
         onChange={(e) => setEmail(e.target.value)}
       />
       <InputForm
         label="password"
         type="password"
         variant="standard"
-        sx={{ width: 200 }}
+        sx={{ width: 200, input: { color: "white" } }}
         onChange={(e) => setPassword(e.target.value)}
       />
       <Box component="div">
