@@ -18,13 +18,15 @@ const Map = ({ latitude, longitude }) => {
     googleMapsApiKey: "AIzaSyClDGpur3KtYNHpABdDTVTiAsdHcrt5nuA",
   });
 
-  const [map, setMap] = React.useState(null);
 
+  const [map, setMap] = React.useState(null);
   const onLoad = React.useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds();
     map.fitBounds(bounds);
     setMap(map);
+    console.log(map, "mapmapmap");
   }, []);
+  console.log(map, "mapmapmap");
 
   const onUnmount = React.useCallback(function callback(map) {
     setMap(null);
