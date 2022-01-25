@@ -82,7 +82,7 @@ function Weather() {
       ) : (
         <>
           <Typography className={styles.title} variant="body2" gutterBottom>
-            wind: {windSpeed} {windDeg}
+            wind: {windSpeed}, deg: {windDeg}&#176;
             <Typography className={styles.arrow} variant="body2">
               <ArrowRightAltIcon
                 style={{
