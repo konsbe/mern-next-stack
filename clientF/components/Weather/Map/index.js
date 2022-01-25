@@ -6,7 +6,7 @@ const containerStyle = {
   height: "300px",
 };
 
-function Map({ latitude, longitude }) {
+const Map = ({ latitude, longitude }) => {
   const center = {
     lat: latitude,
     lng: longitude,
@@ -49,10 +49,9 @@ function Map({ latitude, longitude }) {
         }}
       />
       {/* Child components, such as markers, info windows, etc. */}
-      <></>
     </GoogleMap>
   ) : (
     <></>
   );
-}
+};
 export default React.memo(Map);

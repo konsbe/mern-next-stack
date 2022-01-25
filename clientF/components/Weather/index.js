@@ -29,7 +29,7 @@ function Weather() {
   const [imgMain, setImgMain] = useState("");
   const [lati, setLati] = useState(0);
   const [long, setLong] = useState(0);
-  const obj = { lat: 0, lng: 0 };
+
   const list = [];
 
   const pull_data = async (location) => {
@@ -50,12 +50,9 @@ function Weather() {
       setTemp(list[0].data.main.temp - 273.15);
 
       console.log(list[0].data.coord.lat, list[0].data.coord.lon);
-      obj["lat"] = list[0].data.coord.lat;
-      obj["lon"] = list[0].data.coord.lon;
 
-      setLati(obj["lat"]);
-      setLong(obj["lon"]);
-      console.log(lati, long, obj);
+      setLati(list[0].data.coord.lat);
+      setLong(list[0].data.coord.lon);
     } else {
       setType(false);
       fetchCurrentWeather("athens");
@@ -81,9 +78,9 @@ function Weather() {
         <CircularProgress />
       ) : (
         <>
-          <Typography className={styles.title} variant="body2" gutterBottom>
+          <Typography className={styles.title} variant="h6" gutterBottom>
             wind: {windSpeed}, deg: {windDeg}&#176;
-            <Typography className={styles.arrow} variant="body2">
+            <Typography className={styles.arrow} variant="body1">
               <ArrowRightAltIcon
                 style={{
                   transform: `rotate(${windDeg + 45}deg)`,
@@ -93,9 +90,9 @@ function Weather() {
           </Typography>
 
           <Typography className={styles.title} variant="body2" gutterBottom>
-            temperature: {parseFloat(temp).toFixed(2)}
+            temperature: {parseFloat(temp).toFixed(2)} &#176;C
           </Typography>
-          <Typography className={styles.title} variant="body2" gutterBottom>
+          <Typography className={styles.title} variant="caption" gutterBottom>
             description: {descr}, {main}
             <Avatar src={imgMain} />
           </Typography>
