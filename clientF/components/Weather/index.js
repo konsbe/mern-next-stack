@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./../styles/Weather.module.scss";
 import Map from "./Map";
+import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 
 import {
   Card,
@@ -82,6 +83,13 @@ function Weather() {
         <>
           <Typography className={styles.title} variant="body2" gutterBottom>
             wind: {windSpeed} {windDeg}
+            <Typography className={styles.arrow} variant="body2">
+              <ArrowRightAltIcon
+                style={{
+                  transform: `rotate(${windDeg + 45}deg)`,
+                }}
+              />
+            </Typography>
           </Typography>
 
           <Typography className={styles.title} variant="body2" gutterBottom>
