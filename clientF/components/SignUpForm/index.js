@@ -31,7 +31,7 @@ function SignUpForm() {
     }
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.signUpform}>
       <InputForm
         label="Username"
         color="success"

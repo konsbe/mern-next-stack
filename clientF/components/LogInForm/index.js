@@ -14,7 +14,7 @@ function LoginForm() {
     console.log(email, password);
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.signUpform}>
       <InputForm
         label="email"
         type="email"
