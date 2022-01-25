@@ -83,7 +83,7 @@ function Weather() {
             <Typography className={styles.arrow} variant="body1">
               <ArrowRightAltIcon
                 style={{
-                  transform: `rotate(${windDeg + 45}deg)`,
+                  transform: `rotate(${windDeg + 90}deg)`,
                 }}
               />
             </Typography>
