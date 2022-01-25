@@ -26,9 +26,9 @@ function Weather() {
   const [windDeg, setWindDeg] = useState("");
   const [temp, setTemp] = useState("");
   const [imgMain, setImgMain] = useState("");
-  const [lati, setLati] = useState(null);
-  const [long, setLong] = useState(null);
-
+  const [lati, setLati] = useState(0);
+  const [long, setLong] = useState(0);
+  const obj = { lat: 0, lng: 0 };
   const list = [];
 
   const pull_data = async (location) => {
@@ -48,10 +48,13 @@ function Weather() {
       setWindDeg(list[0].data.wind.deg);
       setTemp(list[0].data.main.temp - 273.15);
 
-      setLati(list[0].data.coord.lat);
-      setLong(list[0].data.coord.lon);
+      console.log(list[0].data.coord.lat, list[0].data.coord.lon);
+      obj["lat"] = list[0].data.coord.lat;
+      obj["lon"] = list[0].data.coord.lon;
 
-      console.log(lati, long);
+      setLati(obj["lat"]);
+      setLong(obj["lon"]);
+      console.log(lati, long, obj);
     } else {
       setType(false);
     }
