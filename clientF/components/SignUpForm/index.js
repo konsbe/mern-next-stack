@@ -3,7 +3,7 @@ import ButtonForm from "../Form/ButtonForm";
 import InputForm from "../Form/InputForm";
 
 import LockOpenIcon from "@mui/icons-material/LockOpen";
-
+import FormControl from "@mui/material/FormControl";
 import { ThemeProvider } from "@emotion/react";
 
 import styles from "./../styles/Form.module.scss";
@@ -32,17 +32,23 @@ function SignUpForm() {
   };
   return (
     <form onSubmit={handleSubmit} className={styles.signUpform}>
-      <InputForm
-        label="Username"
-        color="success"
-        variant="standard"
-        sx={{ width: 200 }}
-        onChange={(e) => setUsername(e.target.value)}
-      />
+      <FormControl variant="standard">
+        <InputForm
+          label="Username"
+          color="success"
+          placeholder="FirsName"
+          variant="standard"
+          sx={{ width: 200, input: { color: "white" } }}
+          onChange={(e) => setUsername(e.target.value)}
+          // className={styles.inputControl}
+          // sx={{  }}
+        />
+      </FormControl>
       <InputForm
         label="Last Name"
+        placeholder="LastName"
         variant="standard"
-        sx={{ width: 200 }}
+        sx={{ width: 200, input: { color: "white" } }}
         onChange={(e) => setLastname(e.target.value)}
       />
       <InputForm
@@ -50,14 +56,14 @@ function SignUpForm() {
         type="email"
         placeholder="example@email.com"
         variant="standard"
-        sx={{ width: 200 }}
+        sx={{ width: 200, input: { color: "white" } }}
         onChange={(e) => setEmail(e.target.value)}
       />
       <InputForm
         type="date"
         label="BirthDay"
         variant="standard"
-        sx={{ width: 200 }}
+        sx={{ width: 200, input: { color: "white" } }}
         InputLabelProps={{
           shrink: true,
         }}
@@ -67,14 +73,16 @@ function SignUpForm() {
         label="password"
         type="password"
         variant="standard"
-        sx={{ width: 200 }}
+        placeholder="password"
+        sx={{ width: 200, input: { color: "white" } }}
         onChange={(e) => setPassword(e.target.value)}
       />
       <InputForm
         type="password"
         label="confirm password"
         variant="standard"
-        sx={{ width: 200 }}
+        sx={{ width: 200, input: { color: "white" } }}
+        placeholder="confirm password"
         onChange={(e) => setConfirmPassword(e.target.value)}
       />
 
@@ -84,7 +92,7 @@ function SignUpForm() {
         variant="outlined"
         color="success"
         type="submit"
-        sx={{ width: 200 }}
+        sx={{ width: 200, input: { color: "white" } }}
       >
         Sign Up
       </ButtonForm>
