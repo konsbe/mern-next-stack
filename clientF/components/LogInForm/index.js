@@ -82,7 +82,7 @@ function LoginForm() {
             vaiant="contained"
           >
             {" "}
-            Google Sign in
+            Google Log in
           </Button>
         )}
         onSuccess={googleSuccess}
