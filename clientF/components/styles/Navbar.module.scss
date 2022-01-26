@@ -1,9 +1,10 @@
 .navBar{
     width: 100%;
     background-color: #1976d2!important;
+    // max-width: none!important;
 }
 .navbarContainer{
-
+    max-width: none;
     width: 100%;
 }
 .phoneBar{
