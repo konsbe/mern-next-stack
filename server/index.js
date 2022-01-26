@@ -42,7 +42,6 @@ nextApp.prepare().then(() => {
   app.use("/projects/api/likeProject/:id", projectsRoutes);
   app.patch("/projects/api/:id", updateProject);
   app.patch("/projects/api/likeProject/:id", likeProject);
-  app.delete("/projects/api/:id", deleteProject);
   app.get("/projects", async (req, res) => {
     const actualPage = "/projects";
     const number = 2;
@@ -55,6 +54,7 @@ nextApp.prepare().then(() => {
       res.status(401).json({ message: err.message });
     }
   });
+  app.delete("/projects/api/:id", deleteProject);
   app.get("/about", async (req, res) => {
     const actualPage = "/about";
 

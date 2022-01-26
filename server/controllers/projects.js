@@ -70,7 +70,7 @@ export const updateProject = async (req, res) => {
 
 
 export const deleteProject = async (req, res) => {
-  const { id: _id } = req.params;
+  const { id } = req.params;
   // console.log(req.paramms)
   console.log(id);
   if (!mongoose.Types.ObjectId.isValid(id))

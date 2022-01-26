@@ -25,7 +25,7 @@ function Projects({ setCurrentId }) {
           container
           alignItems="stretch"
           spacing={3}
-          className={styles.cardsGrid}
+          // className={styles.cardsGrid}
         >
           {projects.map((project) => (
             <Grid key={project._id} item xs={12} sm={6}>

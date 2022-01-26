@@ -48,8 +48,9 @@ export default makeStyles((theme) => ({
     marginTop: 50,
   },
   boxClass: {
-    marginTop: 55,
+    marginTop: 69,
     backgroundColor: "#2C3E50  ",
+    height: 50,
     color: "#FFFFFF  ",
   },
   brandContainer: {

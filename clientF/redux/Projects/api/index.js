@@ -29,7 +29,7 @@ export const updateProject = (id, updatedProject) =>
 
 
 
-export const deleteProject = (id) => axios.delete(`${url}/${id}`);
+export const deleteThisProject = (id) => axios.delete(`${url}/${id}`);
 
 
 

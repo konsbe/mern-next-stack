@@ -18,15 +18,14 @@ import {
   deleteProject,
   likeProject,
 } from "../../../redux/Projects/projects.actions";
-
-
+import ButtonForm from "./../../Form/ButtonForm";
 
 function Project({ project, setCurrentId }) {
   const dispatch = useDispatch();
   // console.log(project.selectedFile);
   // return <Card>{project.title}</Card>;
   return (
-    <div>
+    <>
       <Card className={styles.card}>
         <CardMedia
           className={styles.media}
@@ -38,7 +37,17 @@ function Project({ project, setCurrentId }) {
             {moment(project.createdAt).fromNow()}
           </Typography>
         </div>
-        <div className={styles.overlay2}>
+        <div className={styles.overlaytwo}>
+          <ButtonForm
+            style={{ color: "white" }}
+            size="small"
+            onClick={() => setCurrentId(project._id)}
+          >
+            <MoreHorizIcon fontSize="medium" />
+          </ButtonForm>
+        </div>
+        {/* <div className={styles.overlaytwo}>
+
           <Button
             style={{ color: "white" }}
             size="small"
@@ -46,7 +55,7 @@ function Project({ project, setCurrentId }) {
           >
             <MoreHorizIcon fontSize="medium" />
           </Button>
-        </div>
+        </div>*/}
         <div className={styles.details}>
           <Typography variant="body2" color="textSecondary">
             {project.tags.map((tag) => `#${tag} `)}
@@ -62,7 +71,26 @@ function Project({ project, setCurrentId }) {
           </Typography>
         </CardContent>
         <CardActions className={styles.cardActions}>
-          <Button
+          <ButtonForm
+            size="small"
+            color="primary"
+            onClick={() => dispatch(likeProject(project._id))}
+            className={styles.btnProject}
+          >
+            <span className={styles.span}>{project.likeCount}</span>
+            <ThumbUpAltIcon fontSize="small" />
+            <span className={styles.span}>Like</span>
+          </ButtonForm>
+          <ButtonForm
+            size="small"
+            color="secondary"
+            onClick={() => dispatch(deleteProject(project._id))}
+            className={styles.btnProject}
+          >
+            <DeleteIcon fontSize="small" />
+            Delete
+          </ButtonForm>
+          {/*<Button
             size="small"
             color="primary"
             onClick={() => dispatch(likeProject(project._id))}
@@ -80,10 +108,10 @@ function Project({ project, setCurrentId }) {
           >
             <DeleteIcon fontSize="small" />
             Delete
-          </Button>
+          </Button>*/}
         </CardActions>
       </Card>
-    </div>
+    </>
   );
 }
 

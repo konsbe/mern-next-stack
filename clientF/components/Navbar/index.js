@@ -128,48 +128,12 @@ const ResponsiveAppBar = () => {
           </Link>
         ))}
       </List>
-      <Divider />
-      <List>
-        {!user ? (
-          <Link href={loginform[0].path}>
-            <ListItem
-              button
-              onClick={handleCloseNavMenu}
-              sx={{
-                my: 2,
-                // color: "black",
-                // display: "block",
-                justifyContent: "flex-end",
-              }}
-              className={styles.phoneBut}
-            >
-              {loginform[0].title}
-              <p className={styles.icons}>{loginform[0].icon}</p>
-            </ListItem>
-          </Link>
-        ) : (
-          <ListItem
-            button
-            onClick={logout}
-            sx={{
-              my: 2,
-              // color: "black",
-              // display: "block",
-              justifyContent: "flex-end",
-            }}
-            className={styles.phoneBut}
-          >
-            {logoutform[0].title}
-            <p className={styles.icons}>{logoutform[0].icon}</p>
-          </ListItem>
-        )}
-      </List>
     </Box>
   );
 
   return (
     <AppBar className={styles.navBar} position="sticky">
-      <Container className={styles.navbarContainer} maxWidth="none">
+      <Container className={styles.navbarContainer}>
         <Toolbar disableGutters>
           <Typography
             variant="h6"
