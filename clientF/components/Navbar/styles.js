@@ -50,10 +50,11 @@ export default makeStyles((theme) => ({
   boxClass: {
     paddingTop: 15,
     marginTop: 0,
-    backgroundColor: "#2C3E50  ",
+    // backgroundColor: "#2C3E50  ",
     height: 68.5,
     color: "#FFFFFF  ",
   },
+
   brandContainer: {
     display: "flex",
     alignItems: "center",

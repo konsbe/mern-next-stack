@@ -86,24 +86,26 @@ const ResponsiveAppBar = () => {
       onKeyDown={toggleDrawer(anchor, false)}
       className={styles.navBarBox}
     >
-      <div className={classes.boxClass}>
-        <div className={classes.profilePhone}>
-          <Tooltip title="Open settings">
-            <IconButton onClick={handleOpenUserMenu}>
-              <Avatar
-                className={classes.purple}
-                alt={user?.result.name}
-                src={user?.result.imageUrl}
-              >
-                {user?.result.name.charAt(0)}
-              </Avatar>
-            </IconButton>
-          </Tooltip>
-        </div>
-        <div>
-          <Typography className={classes.userNamePhone} variant="body2">
-            {user?.result.name}
-          </Typography>
+      <div className={styles.profStyles}>
+        <div className={classes.boxClass}>
+          <div className={classes.profilePhone}>
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu}>
+                <Avatar
+                  className={classes.purple}
+                  alt={user?.result.name}
+                  src={user?.result.imageUrl}
+                >
+                  {user?.result.name.charAt(0)}
+                </Avatar>
+              </IconButton>
+            </Tooltip>
+          </div>
+          <div>
+            <Typography className={classes.userNamePhone} variant="body2">
+              {user?.result.name}
+            </Typography>
+          </div>
         </div>
       </div>
       <Divider />
@@ -122,7 +124,6 @@ const ResponsiveAppBar = () => {
               }}
               className={styles.phoneBut}
             >
-
               {page.title}
               <p className={styles.icons}>{page.icon}</p>
             </ListItem>
