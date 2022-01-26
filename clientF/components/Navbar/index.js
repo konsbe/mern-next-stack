@@ -21,11 +21,12 @@ import { loginform, logoutform } from "./pagesData";
 import styles from "../styles/Navbar.module.scss";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
-import { useLocation } from "react-router-dom";
+
+import useStyles from "./styles";
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
-
 const ResponsiveAppBar = () => {
+  const classes = useStyles();
   const router = useRouter();
   const dispatch = useDispatch();
   // const location = useLocation();
@@ -204,16 +205,32 @@ const ResponsiveAppBar = () => {
                 </Button>
               </Link>
             ) : (
-              <Button
-                onClick={logout}
-                sx={{ my: 2, color: "white", display: "block" }}
-                className={styles.colorButtons}
-              >
-                {logoutform[0].title}
-              </Button>
+              <div className={classes.profile}>
+                <Tooltip title="Open settings">
+                  <IconButton onClick={handleOpenUserMenu}>
+                    <Avatar
+                      className={classes.purple}
+                      alt={user?.result.name}
+                      src={user?.result.imageUrl}
+                    >
+                      {user?.result.name.charAt(0)}
+                    </Avatar>
+                  </IconButton>
+                </Tooltip>
+                <Typography className={classes.userName} variant="h6">
+                  {user?.result.name}
+                </Typography>
+                <Button
+                  onClick={logout}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                  className={styles.colorButtons}
+                >
+                  {logoutform[0].title}
+                </Button>
+              </div>
             )}
           </Box>
-          <Box sx={{ flexGrow: 0 }}>
+          {/* <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src=" " />
@@ -241,7 +258,7 @@ const ResponsiveAppBar = () => {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
+          </Box> */}
         </Toolbar>
       </Container>
     </AppBar>
