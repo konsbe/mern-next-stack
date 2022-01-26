@@ -100,11 +100,11 @@ const ResponsiveAppBar = () => {
             </IconButton>
           </Tooltip>
         </div>
-        <p>
+        <div>
           <Typography className={classes.userNamePhone} variant="body2">
             {user?.result.name}
           </Typography>
-        </p>
+        </div>
       </div>
       <Divider />
       <List>
