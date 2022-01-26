@@ -25,12 +25,32 @@ export default makeStyles((theme) => ({
   },
   profile: {
     display: "flex",
-    justifyContent: "space-between",
-    width: "400px",
+    // justifyContent: "space-between",
+    width: "300px",
+  },
+  profilePhone: {
+    display: "flex",
+
+    // justifyContent: "space-between",
+    marginRight: 1,
+    // width: "400px",
+    float: "right",
   },
   userName: {
     display: "flex",
     alignItems: "center",
+  },
+  userNamePhone: {
+    // backgroundColor: "red",
+    fontSize: 15,
+    paddingTop: 30,
+    marginLeft: 10,
+    marginTop: 50,
+  },
+  boxClass: {
+    marginTop: 55,
+    backgroundColor: "#2C3E50  ",
+    color: "#FFFFFF  ",
   },
   brandContainer: {
     display: "flex",

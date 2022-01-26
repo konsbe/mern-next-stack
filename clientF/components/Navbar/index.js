@@ -84,7 +84,29 @@ const ResponsiveAppBar = () => {
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
+      className={styles.navBarBox}
     >
+      <div className={classes.boxClass}>
+        <div className={classes.profilePhone}>
+          <Tooltip title="Open settings">
+            <IconButton onClick={handleOpenUserMenu}>
+              <Avatar
+                className={classes.purple}
+                alt={user?.result.name}
+                src={user?.result.imageUrl}
+              >
+                {user?.result.name.charAt(0)}
+              </Avatar>
+            </IconButton>
+          </Tooltip>
+        </div>
+        <p>
+          <Typography className={classes.userNamePhone} variant="body2">
+            {user?.result.name}
+          </Typography>
+        </p>
+      </div>
+      <Divider />
       <List>
         {pages.map((page, index) => (
           <Link key={index} href={page.path}>
@@ -108,10 +130,27 @@ const ResponsiveAppBar = () => {
       </List>
       <Divider />
       <List>
-        <Link href={loginform[0].path}>
+        {!user ? (
+          <Link href={loginform[0].path}>
+            <ListItem
+              button
+              onClick={handleCloseNavMenu}
+              sx={{
+                my: 2,
+                // color: "black",
+                // display: "block",
+                justifyContent: "flex-end",
+              }}
+              className={styles.phoneBut}
+            >
+              {loginform[0].title}
+              <p className={styles.icons}>{loginform[0].icon}</p>
+            </ListItem>
+          </Link>
+        ) : (
           <ListItem
             button
-            onClick={handleCloseNavMenu}
+            onClick={logout}
             sx={{
               my: 2,
               // color: "black",
@@ -120,10 +159,10 @@ const ResponsiveAppBar = () => {
             }}
             className={styles.phoneBut}
           >
-            {loginform[0].title}
-            <p className={styles.icons}>{loginform[0].icon}</p>
+            {logoutform[0].title}
+            <p className={styles.icons}>{logoutform[0].icon}</p>
           </ListItem>
-        </Link>
+        )}
       </List>
     </Box>
   );
@@ -205,31 +244,37 @@ const ResponsiveAppBar = () => {
                 </Button>
               </Link>
             ) : (
-              <div className={classes.profile}>
-                <Tooltip title="Open settings">
-                  <IconButton onClick={handleOpenUserMenu}>
-                    <Avatar
-                      className={classes.purple}
-                      alt={user?.result.name}
-                      src={user?.result.imageUrl}
-                    >
-                      {user?.result.name.charAt(0)}
-                    </Avatar>
-                  </IconButton>
-                </Tooltip>
-                <Typography className={classes.userName} variant="h6">
-                  {user?.result.name}
-                </Typography>
-                <Button
-                  onClick={logout}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                  className={styles.colorButtons}
-                >
-                  {logoutform[0].title}
-                </Button>
+              <div className={styles.profData}>
+                <div className={classes.profile}>
+                  <Tooltip title="Open settings">
+                    <IconButton onClick={handleOpenUserMenu}>
+                      <Avatar
+                        className={classes.purple}
+                        alt={user?.result.name}
+                        src={user?.result.imageUrl}
+                      >
+                        {user?.result.name.charAt(0)}
+                      </Avatar>
+                    </IconButton>
+                  </Tooltip>
+                  <Typography className={classes.userName} variant="h6">
+                    {user?.result.name}
+                  </Typography>
+                </div>
               </div>
             )}
           </Box>
+          {user ? (
+            <Button
+              onClick={logout}
+              sx={{ my: 2, color: "white", display: "block" }}
+              className={styles.colorButtons}
+            >
+              {logoutform[0].title}
+            </Button>
+          ) : (
+            <></>
+          )}
           {/* <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
