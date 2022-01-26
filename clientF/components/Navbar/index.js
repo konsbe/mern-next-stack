@@ -21,11 +21,14 @@ import { loginform, logoutform } from "./pagesData";
 import styles from "../styles/Navbar.module.scss";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
+import { useLocation } from "react-router-dom";
+
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const ResponsiveAppBar = () => {
   const router = useRouter();
   const dispatch = useDispatch();
+  // const location = useLocation();
   const [state, setState] = React.useState({
     left: false,
   });
@@ -35,7 +38,7 @@ const ResponsiveAppBar = () => {
     const token = user?.token;
 
     setUser(JSON.parse(localStorage.getItem("userProfile")));
-  }, [user]);
+  }, [router]);
 
   // console.log(user, "user");
   const logout = () => {
