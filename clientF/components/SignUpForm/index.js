@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import ButtonForm from "../Form/ButtonForm";
 import InputForm from "../Form/InputForm";
+import { GoogleLogin } from "react-google-login";
+import Icon from "./icon";
+import { Button } from "@mui/material";
 
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import FormControl from "@mui/material/FormControl";
 import { ThemeProvider } from "@emotion/react";
-
+import useStyles from "./styles";
 import styles from "./../styles/Form.module.scss";
+import { useDispatch } from "react-redux";
 
 function SignUpForm() {
+  const classes = useStyles();
+  const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
@@ -30,6 +36,22 @@ function SignUpForm() {
       alert("password is not the same");
     }
   };
+
+  const googleSuccess = async (res) => {
+    const result = res?.profileObj;
+    const token = res?.tokenId;
+    try {
+      dispatch({ type: "AUTH", data: { result, token } });
+    } catch (error) {
+      console.log(error);
+    }
+    // console.log(res);
+  };
+  const googleFailure = (error) => {
+    console.log(error);
+    console.log("Google sign in unsuccessful");
+  };
+
   return (
     <form onSubmit={handleSubmit} className={styles.signUpform}>
       <FormControl variant="standard">
@@ -86,7 +108,26 @@ function SignUpForm() {
         placeholder="confirm password"
         onChange={(e) => setConfirmPassword(e.target.value)}
       />
-
+      <GoogleLogin
+        clientId="131233728657-0h9g8a4fo65r7l3ous5skvdtcth8ddv3.apps.googleusercontent.com"
+        render={(renderProps) => (
+          <Button
+            className={classes.googleButton}
+            color="primary"
+            fullWidth
+            onClick={renderProps.onClick}
+            disabled={renderProps.disabled}
+            startIcon={<Icon />}
+            vaiant="contained"
+          >
+            {" "}
+            Google Sign in
+          </Button>
+        )}
+        onSuccess={googleSuccess}
+        onFailure={googleFailure}
+        cookiePolicy="single_host_origin"
+      />
       <ButtonForm
         className={styles.buttonBox}
         startIcon={<LockOpenIcon />}
