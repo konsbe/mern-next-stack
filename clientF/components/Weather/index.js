@@ -27,8 +27,9 @@ function Weather() {
   const [windDeg, setWindDeg] = useState("");
   const [temp, setTemp] = useState("");
   const [imgMain, setImgMain] = useState("");
-  const [lati, setLati] = useState(0);
-  const [long, setLong] = useState(0);
+  const [lati, setLati] = useState(37.9795);
+  const [long, setLong] = useState(23.7162);
+  const [zoom, setZoom] = useState(10);
 
   const list = [];
 
@@ -48,14 +49,13 @@ function Weather() {
       setWindSpeed(list[0].data.wind.speed);
       setWindDeg(list[0].data.wind.deg);
       setTemp(list[0].data.main.temp - 273.15);
-
+      console.log(list[0].data.coord.lat, list[0].data.coord.lon);
       setLati(list[0].data.coord.lat);
       setLong(list[0].data.coord.lon);
     } else {
       setType(false);
       fetchCurrentWeather("athens");
     }
-
   };
 
   return (
@@ -93,7 +93,7 @@ function Weather() {
             description: {descr}, {main}
             <Avatar src={imgMain} />
           </Typography>
-          <Map latitude={lati} longitude={long} />
+          <Map latitude={lati} longitude={long} zoom={zoom} />
         </>
       )}
       <CardContent>

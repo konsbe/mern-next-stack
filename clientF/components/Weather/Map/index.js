@@ -7,7 +7,7 @@ const containerStyle = {
 };
 
 
-const Map = ({ latitude, longitude }) => {
+const Map = ({ latitude, longitude, zoom }) => {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     // id: "liquid-sylph-339314",
@@ -27,13 +27,13 @@ const Map = ({ latitude, longitude }) => {
 
   return isLoaded ? (
     <GoogleMap
-      zoom={10}
+      zoom={zoom}
       mapContainerStyle={containerStyle}
       center={{
         lat: latitude,
         lng: longitude,
       }}
-      defaultCenter={{ lat: 37.9795, lng: 0, lon: 23.7162 }}
+      // defaultCenter={{ lat: 37.9795, lng: 0, lon: 23.7162 }}
       onLoad={onLoad}
       onUnmount={onUnmount}
     >
