@@ -45,12 +45,13 @@ export default makeStyles((theme) => ({
     fontSize: 15,
     paddingTop: 30,
     marginLeft: 10,
-    marginTop: 50,
+    // marginTop: 50,
   },
   boxClass: {
-    marginTop: 69,
+    paddingTop: 15,
+    marginTop: 0,
     backgroundColor: "#2C3E50  ",
-    height: 50,
+    height: 68.5,
     color: "#FFFFFF  ",
   },
   brandContainer: {

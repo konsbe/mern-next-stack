@@ -122,6 +122,7 @@ const ResponsiveAppBar = () => {
               }}
               className={styles.phoneBut}
             >
+
               {page.title}
               <p className={styles.icons}>{page.icon}</p>
             </ListItem>
