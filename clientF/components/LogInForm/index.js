@@ -47,6 +47,7 @@ function LoginForm() {
         type="email"
         placeholder="example@email.com"
         variant="standard"
+        autoFocus
         sx={{ width: 200, input: { color: "white" } }}
         onChange={(e) => setEmail(e.target.value)}
       />
