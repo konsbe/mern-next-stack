@@ -17,15 +17,34 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
 import { pages } from "./pagesData";
-import { loginform } from "./pagesData";
+import { loginform, logoutform } from "./pagesData";
 import styles from "../styles/Navbar.module.scss";
-
+import { useDispatch } from "react-redux";
+import { useRouter } from "next/router";
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const ResponsiveAppBar = () => {
+  const router = useRouter();
+  const dispatch = useDispatch();
   const [state, setState] = React.useState({
     left: false,
   });
+  const [user, setUser] = React.useState(null);
+
+  React.useEffect(() => {
+    const token = user?.token;
+
+    setUser(JSON.parse(localStorage.getItem("userProfile")));
+  }, [user]);
+
+  // console.log(user, "user");
+  const logout = () => {
+    dispatch({ type: "LOGOUT" });
+    localStorage.removeItem("userProfile");
+    setUser(null);
+    router.push("/");
+  };
+
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -171,15 +190,25 @@ const ResponsiveAppBar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Link href={loginform[0].path}>
+            {!user ? (
+              <Link href={loginform[0].path}>
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                  className={styles.colorButtons}
+                >
+                  {loginform[0].title}
+                </Button>
+              </Link>
+            ) : (
               <Button
-                onClick={handleCloseNavMenu}
+                onClick={logout}
                 sx={{ my: 2, color: "white", display: "block" }}
                 className={styles.colorButtons}
               >
-                {loginform[0].title}
+                {logoutform[0].title}
               </Button>
-            </Link>
+            )}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">

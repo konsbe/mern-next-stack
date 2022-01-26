@@ -4,6 +4,7 @@ import BookIcon from "@mui/icons-material/Book";
 import AccountTreeIcon from "@mui/icons-material/AccountTree";
 import LoginIcon from "@mui/icons-material/Login";
 import AirIcon from "@mui/icons-material/Air";
+import LogoutIcon from "@mui/icons-material/Logout";
 export const pages = [
   {
     title: "ΗΟΜΕ",
@@ -38,6 +39,14 @@ export const loginform = [
     title: "Log In",
     path: "/login",
     icon: <LoginIcon />,
+  },
+];
+
+export const logoutform = [
+  {
+    title: "Log Out",
+    // path: "/login",
+    icon: <LogoutIcon />,
   },
 ];
 

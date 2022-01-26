@@ -11,8 +11,9 @@ import { ThemeProvider } from "@emotion/react";
 import useStyles from "./styles";
 import styles from "./../styles/Form.module.scss";
 import { useDispatch } from "react-redux";
-
+import { useRouter } from "next/router";
 function SignUpForm() {
+  const router = useRouter();
   const classes = useStyles();
   const dispatch = useDispatch();
   const [username, setUsername] = useState("");
@@ -41,7 +42,9 @@ function SignUpForm() {
     const result = res?.profileObj;
     const token = res?.tokenId;
     try {
-      dispatch({ type: "AUTH", data: { result, token } });
+      dispatch({ type: "AUTH", data: { result, token } }).then(
+        router.push("/")
+      );
     } catch (error) {
       console.log(error);
     }
