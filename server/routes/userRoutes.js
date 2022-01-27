@@ -1,12 +1,10 @@
 import express from "express";
 
-import {} from "../controllers/user.js";
+import { signUpUser, logInUser } from "../controllers/user.js";
 
 const router = express.Router();
 
-router.get("/");
-// router.get("/", getBlocksDescr(coin));
-
-// router.patch("/:id", updateProject);
+router.post("/user/signup", signUpUser);
+router.post("/user/login", logInUser);
 
 export default router;

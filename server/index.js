@@ -67,11 +67,24 @@ nextApp.prepare().then(() => {
       res.status(401).json({ message: err.message });
     }
   });
+
   app.post("/projects", auth, createProject);
   //blockcain routes
   app.use("/blog/blockchain/api", blockchainRoutes);
   // user routes
   // app.use("/user", userRoutes);
+  app.get("/user", async (req, res) => {
+    const actualPage = "/projects";
+    const number = 2;
+    try {
+      const projectModels = await ProjectModel.find();
+      const queryParams = projectModels;
+
+      nextApp.render(req, res, actualPage, queryParams, number);
+    } catch (err) {
+      res.status(401).json({ message: err.message });
+    }
+  });
   app.post("/user/signup", signUpUser);
   app.post("/user/login", logInUser);
 

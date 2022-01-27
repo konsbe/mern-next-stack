@@ -31,7 +31,7 @@ export const logInUser = async (req, res) => {
 };
 
 export const signUpUser = async (req, res) => {
-  const { email, password, firstName, lastName, confirmPassword, birthDay } =
+  const { email, password, userName, lastName, confirmPassword, birthDay } =
     req.body;
 
   try {
@@ -46,7 +46,7 @@ export const signUpUser = async (req, res) => {
       email,
       password: hashedPassword,
       birthDay,
-      name: `${firstName} ${lastName}`,
+      name: `${userName} ${lastName}`,
     });
     const token = jwt.sign({ email: result.email, id: result._id }, "test", {
       expiresIn: "1h",

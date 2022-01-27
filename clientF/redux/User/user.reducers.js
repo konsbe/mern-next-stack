@@ -11,7 +11,7 @@ const userReducer = (state = { authData: null }, action) => {
       return { ...state, authData: null };
     default:
       return state;
-      s;
+
   }
 };
 
