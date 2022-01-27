@@ -23,6 +23,8 @@ export const logInUser = async (req, res) => {
       "test",
       { expiresIn: "1h" }
     );
+    console.log(token);
+    console.log(res);
     res.status(200).json({ result: existingUser, token });
   } catch (err) {
     // console.log(err);
