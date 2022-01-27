@@ -12,30 +12,45 @@ import useStyles from "./styles";
 import styles from "./../styles/Form.module.scss";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
+
+const initialState = {
+  userName: "",
+  lastName: "",
+  email: "",
+  birthDay: "",
+  password: "",
+  confirmPassword: "",
+};
+
 function SignUpForm() {
   const router = useRouter();
   const classes = useStyles();
   const dispatch = useDispatch();
-  const [username, setUsername] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
-  const [birthday, setBirthday] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [formData, setFormData] = useState(initialState);
+  // const [username, setUsername] = useState("");
+  // const [lastname, setLastname] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [birthday, setBirthday] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [confirmPassword, setConfirmPassword] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
-      console.log(
-        username,
-        lastname,
-        email,
-        birthday,
-        password,
-        confirmPassword
-      );
+    if (formData.password === formData.confirmPassword) {
+      console.log(formData);
+      // console.log(
+      //   username,
+      //   lastname,
+      //   email,
+      //   birthday,
+      //   password,
+      //   confirmPassword
+      // );
     } else {
       alert("password is not the same");
     }
+  };
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const googleSuccess = async (res) => {
@@ -60,48 +75,55 @@ function SignUpForm() {
       <FormControl variant="standard">
         <InputForm
           label="Username"
+          name="userName"
           color="success"
-          placeholder="FirsName"
+          placeholder="First Name"
           variant="standard"
           autoFocus
           sx={{ width: 200, input: { color: "white" } }}
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={handleChange}
           // className={styles.inputControl}
           // sx={{  }}
         />
       </FormControl>
       <InputForm
         label="Last Name"
-        placeholder="LastName"
+        name="lastName"
+        placeholder="Last Name"
+        color="success"
         variant="standard"
         sx={{ width: 200, input: { color: "white" } }}
-        onChange={(e) => setLastname(e.target.value)}
+        onChange={handleChange}
       />
       <InputForm
         label="email"
         type="email"
+        name="email"
         placeholder="example@email.com"
         variant="standard"
         sx={{ width: 200, input: { color: "white" } }}
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={handleChange}
       />
       <InputForm
         type="date"
         label="BirthDay"
         variant="standard"
+        name="birthDay"
         sx={{ width: 200, input: { color: "white" } }}
         InputLabelProps={{
           shrink: true,
         }}
-        onChange={(e) => setBirthday(e.target.value)}
+        onChange={handleChange}
       />
       <InputForm
         label="password"
         type="password"
         variant="standard"
         placeholder="password"
+        name="password"
+        color="secondary"
         sx={{ width: 200, input: { color: "white" } }}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={handleChange}
       />
       <InputForm
         type="password"
@@ -109,7 +131,9 @@ function SignUpForm() {
         variant="standard"
         sx={{ width: 200, input: { color: "white" } }}
         placeholder="confirm password"
-        onChange={(e) => setConfirmPassword(e.target.value)}
+        name="confirmPassword"
+        color="secondary"
+        onChange={handleChange}
       />
       <GoogleLogin
         clientId="131233728657-0h9g8a4fo65r7l3ous5skvdtcth8ddv3.apps.googleusercontent.com"

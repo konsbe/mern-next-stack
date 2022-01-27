@@ -22,11 +22,14 @@ import {
   likeProject,
 } from "./controllers/projects.js";
 
+import { signUpUser, logInUser } from "./controllers/user.js";
+
 // import url from "./routes/blockchainR.js";
 import ProjectModel from "./models/projectModel.js";
-import projectsRoutes from "./routes/projects.js";
-import blockchainRoutes from "./routes/blockchainR.js";
-import blockchainDRoutes from "./routes/blockchainD.js";
+import projectsRoutes from "./routes/projectsRoutes.js";
+import blockchainRoutes from "./routes/blockchainRoutes.js";
+// import userRoutes from "./routes/userRoutes.js";
+import auth from "./middleware/auth.js";
 
 nextApp.prepare().then(() => {
   const app = express();
@@ -40,8 +43,8 @@ nextApp.prepare().then(() => {
   //projects rutes
   app.use("/projects/api", projectsRoutes);
   app.use("/projects/api/likeProject/:id", projectsRoutes);
-  app.patch("/projects/api/:id", updateProject);
-  app.patch("/projects/api/likeProject/:id", likeProject);
+  app.patch("/projects/api/:id", auth, updateProject);
+  app.patch("/projects/api/likeProject/:id", auth, likeProject);
   app.get("/projects", async (req, res) => {
     const actualPage = "/projects";
     const number = 2;
@@ -54,7 +57,7 @@ nextApp.prepare().then(() => {
       res.status(401).json({ message: err.message });
     }
   });
-  app.delete("/projects/api/:id", deleteProject);
+  app.delete("/projects/api/:id", auth, deleteProject);
   app.get("/about", async (req, res) => {
     const actualPage = "/about";
 
@@ -64,10 +67,13 @@ nextApp.prepare().then(() => {
       res.status(401).json({ message: err.message });
     }
   });
-  app.post("/projects", createProject);
+  app.post("/projects", auth, createProject);
   //blockcain routes
   app.use("/blog/blockchain/api", blockchainRoutes);
-  // app.use("/blog/blockchain/desc", blockchainDRoutes);
+  // user routes
+  // app.use("/user", userRoutes);
+  app.post("/user/signup", signUpUser);
+  app.post("/user/login", logInUser);
 
   app.get("*", (req, res) => {
     return handle(req, res); // for all the react stuff

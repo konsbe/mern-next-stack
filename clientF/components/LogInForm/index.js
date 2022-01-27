@@ -12,12 +12,19 @@ import { useRouter } from "next/router";
 import Icon from "./icon";
 import styles from "./../styles/Form.module.scss";
 
+import { logInAction } from "./../../redux/User/user.actions";
+
+const initialState = {
+  email: "",
+
+  password: "",
+};
+
 function LoginForm() {
   const router = useRouter();
   const classes = useStyles();
   const dispatch = useDispatch();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState(initialState);
 
   const googleSuccess = async (res) => {
     const result = res?.profileObj;
@@ -35,28 +42,35 @@ function LoginForm() {
     console.log(error);
     console.log("Google sign in unsuccessful");
   };
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, password);
+    console.log(formData);
+    dispatch(logInAction(formData, router));
   };
   return (
     <form onSubmit={handleSubmit} className={styles.signUpform}>
       <InputForm
         label="email"
         type="email"
+        name="email"
         placeholder="example@email.com"
         variant="standard"
         autoFocus
         sx={{ width: 200, input: { color: "white" } }}
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={handleChange}
       />
       <InputForm
         label="password"
         type="password"
+        name="password"
         variant="standard"
+        color="secondary"
         sx={{ width: 200, input: { color: "white" } }}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={handleChange}
       />
       <Box component="div">
         <ButtonForm
