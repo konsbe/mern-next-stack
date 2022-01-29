@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import InputForm from "../Form/InputForm";
 
+import { Typography, Paper } from "@material-ui/core";
+
 import { useDispatch, useSelector } from "react-redux";
 import {
   createProject,
@@ -23,13 +25,14 @@ const mapState = ({ projects }) => ({
 function ProjectsForm({ currentId, setCurrentId }) {
   const dispatch = useDispatch();
   const { projects } = useSelector(mapState);
-  // console.log(projects, "projects");
 
-  // const project = 1;
-
+  // console.log(user?.result?.name);
   const project = useSelector((state) =>
     currentId ? state.projects.projects.find((p) => p._id === currentId) : null
   );
+
+  // const user = JSON.parse(localStorage.getItem("userProfile"));
+  // console.log(user?.result?.name);
   // const project = projects.filter((word) => word._id === currentId);
   // console.log(project, "result");
 
@@ -60,18 +63,28 @@ function ProjectsForm({ currentId, setCurrentId }) {
     e.preventDefault();
 
     if (currentId) {
-      dispatch(updatedProject(currentId, postData));
+      dispatch(
+        updatedProject(currentId, { ...postData, name: user?.result?.name })
+      );
       resetForm();
       // console.log(currentId, "currentId");
     } else {
-      dispatch(createProject(postData));
+      dispatch(createProject({ ...postData, name: user?.result?.name }));
       resetForm();
       // console.log(postData);
     }
 
     // resetForm();
   };
-
+  // if (!user?.result?.name) {
+  //   return (
+  //     <Paper className={classes.paper}>
+  //       <Typography variant="h6" align="center">
+  //         Please Sign In to create your project.
+  //       </Typography>
+  //     </Paper>
+  //   );
+  // }
   return (
     <>
       <form onSubmit={handleSubmit} className={styles.projectForm}>

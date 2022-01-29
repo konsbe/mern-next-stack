@@ -22,6 +22,8 @@ import styles from "../styles/Navbar.module.scss";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 
+import { setUserAction } from "../../redux/User/user.actions";
+
 import useStyles from "./styles";
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -39,6 +41,14 @@ const ResponsiveAppBar = () => {
     const token = user?.token;
 
     setUser(JSON.parse(localStorage.getItem("userProfile")));
+    if (user) {
+      const formData = {
+        ...JSON.parse(localStorage.getItem("userProfile")),
+
+        //   password: JSON.parse(localStorage.getItem("userProfile")).result.password,
+      };
+      dispatch(setUserAction(formData));
+    }
   }, [router]);
 
   // console.log(user, "user");

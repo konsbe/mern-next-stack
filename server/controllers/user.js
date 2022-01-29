@@ -31,6 +31,28 @@ export const logInUser = async (req, res) => {
     res.status(500).json({ message: "Something wen't wrong" });
   }
 };
+export const findUser = async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    const existingUser = await User.findOne({ email });
+
+    if (!existingUser)
+      return res.status(404).json({ message: "User doesn't exist." });
+
+    const token = jwt.sign(
+      { email: existingUser.email, id: existingUser._id },
+      "test",
+      { expiresIn: "1h" }
+    );
+    console.log(token);
+    // console.log(res);
+    res.status(200).json({ auth: true, result: existingUser, token });
+  } catch (err) {
+    // console.log(err);
+    res.status(500).json({ message: "Something wen't wrong" });
+  }
+};
 
 export const signUpUser = async (req, res) => {
   const { email, password, userName, lastName, confirmPassword, birthDay } =

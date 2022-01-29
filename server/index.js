@@ -22,7 +22,7 @@ import {
   likeProject,
 } from "./controllers/projects.js";
 
-import { signUpUser, logInUser } from "./controllers/user.js";
+import { signUpUser, logInUser, findUser } from "./controllers/user.js";
 
 // import url from "./routes/blockchainR.js";
 import ProjectModel from "./models/projectModel.js";
@@ -68,25 +68,14 @@ nextApp.prepare().then(() => {
     }
   });
 
-  app.post("/projects", auth, createProject);
+  app.post("/projects", createProject);
   //blockcain routes
   app.use("/blog/blockchain/api", blockchainRoutes);
   // user routes
-  // app.use("/user", userRoutes);
-  // app.get("/user", async (req, res) => {
-  //   const actualPage = "/projects";
-  //   const number = 2;
-  //   try {
-  //     const projectModels = await ProjectModel.find();
-  //     const queryParams = projectModels;
 
-  //     nextApp.render(req, res, actualPage, queryParams, number);
-  //   } catch (err) {
-  //     res.status(401).json({ message: err.message });
-  //   }
-  // });
   app.post("/user/signup", signUpUser);
   app.post("/user/login", logInUser);
+  app.post("/user/finduser", findUser);
 
   app.get("*", (req, res) => {
     return handle(req, res); // for all the react stuff

@@ -1,18 +1,6 @@
 import mongoose from "mongoose";
 import ProjectModel from "./../models/projectModel.js";
-// import pkg from "mongoose";
-// const { mongoose } = pkg;
-//   async (req, res) => {
-//   try {
-//     const projectModels = await ProjectModel.find();
-//     res.send("This Works!");
-//     console.log(ProjeModel);
-//     console.log(projectModels);
-//     res.status(200).json(projectModels);
-//   } catch (err) {
-//     res.status(404).json({ message: err.message });
-//   }
-// };
+
 export const getProjects = async (req, res) => {
   try {
     const projectModels = await ProjectModel.find();
@@ -40,7 +28,12 @@ export const getProject = async (req, res) => {
 export const createProject = async (req, res) => {
   // res.send("Project Creation");
   const project = req.body;
-  const newProject = new ProjectModel(project);
+  console.log(req.userId);
+  const newProject = new ProjectModel({
+    ...project,
+    creator: req.userId,
+    createdAt: new Date().toISOString(),
+  });
   try {
     await newProject.save();
 
