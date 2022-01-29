@@ -36,6 +36,15 @@ function Weather() {
   const pull_data = async (location) => {
     list.splice(0, list.length);
 
+    // const data = fetchCurrentWeather(location);
+    // await data.then(function (result) {
+    //   // setType(true);
+    //   // setList({ ...result });
+    //   list.push(result);
+    //   console.log(list);
+    //   // console.log(data);
+    // });
+
     const bool = await fetchCurrentWeatherBool(location);
     if (bool === "resolve") {
       const data = await fetchCurrentWeather(location);
