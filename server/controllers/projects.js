@@ -85,13 +85,25 @@ export const likeProject = async (req, res) => {
   const { id } = req.params;
   // console.log(res, "req.body");
   // console.log(req.id.body);
+
+  if (!req.userId) return res.json({ message: "Unauthenticated" });
+
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send("no post with this id");
   const project = await ProjectModel.findById(id);
 
+  const index = project.likes.findIndex((id) => id === String(req.userId));
+
+  if (index === -1) {
+    project.likes.push(req.userId);
+  } else {
+    project.likes = project.likes.filter((id) => id !== String(req.userId));
+  }
+
   const updatedProject = await ProjectModel.findByIdAndUpdate(
     id,
-    { likeCount: project.likeCount + 1 },
+    project,
+    // { likeCount: project.likeCount + 1 },
     { new: true }
   );
 

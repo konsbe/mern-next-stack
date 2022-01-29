@@ -6,10 +6,14 @@ const projectSchema = mongoose.Schema({
   creator: String,
   tags: [String],
   selectedFile: String,
-  likeCount: {
-    type: Number,
-    default: 0,
+  likes: {
+    type: [String],
+    default: [],
   },
+  // likeCount: {
+  //   type: Number,
+  //   default: 0,
+  // },
   likeList: [String],
   createdAt: {
     type: Date,
