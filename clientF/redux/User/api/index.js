@@ -5,16 +5,16 @@ const API = axios.create({
 });
 // JSON.parse(localStorage.getItem("userProfile")).token
 
-axios.interceptors.request.use((req) => {
-  if (!localStorage.getItem("userProfile").token) {
-    req.headers.Authorization = `Bearer ${
-      JSON.parse(localStorage.getItem("userProfile")).token
-    }`;
-    // console.log("getit");
-  }
+// axios.interceptors.request.use((req) => {
+//   if (!localStorage.getItem("userProfile").token) {
+//     req.headers.Authorizationreq = `Bearer ${
+//       JSON.parse(localStorage.getItem("userProfile")).token
+//     }`;
+//     // console.log("getit");
+//   }
 
-  return req;
-});
+//   return req;
+// });
 
 export const logIn = (formData) => API.post("/user/login", formData);
 // export const findUser = (formData) => API.post("/user/login", formData);
