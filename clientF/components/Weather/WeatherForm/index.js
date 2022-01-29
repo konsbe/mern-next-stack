@@ -6,16 +6,16 @@ import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 
 function WeatherForm({ func }) {
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState("athens");
   const resetForm = () => {
     setLocation("");
   };
   useEffect(() => {
-    // func(location);
+    func(location);
     resetForm();
   }, []);
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     func(location);
