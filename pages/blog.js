@@ -38,8 +38,8 @@ function Blog() {
             spacing={4}
             className={styles.gridContainer}
           >
-            <Grid item xs={12} md={8}>
-              <BlogForm />
+            <Grid item xs={12} md={8} className={styles.containerForm}>
+              <BlogForm className={styles.containerForm} />
               <Blogs />
             </Grid>
             <Grid item xs={12} sm={2}>

@@ -4,10 +4,14 @@ import Switch from "@mui/material/Switch";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import FileBase from "react-file-base64";
 
+import { Typography } from "@mui/material";
+
 import ButtonForm from "./../Form/ButtonForm";
 import InputForm from "./../Form/InputForm";
 import styles from "./../styles/Blog.module.scss";
 import { useDispatch, useSelector } from "react-redux";
+
+// import styles from './../styles/Blog.module.scss'
 
 // const mapState = ({ user }) => ({
 //   user: user.currentUser,
@@ -59,12 +63,14 @@ function BlogForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles.containerForm} onSubmit={handleSubmit}>
       <div>
         <Switch checked={postData.public} onChange={handleChange} />
         {postData.public ? "Public" : "Private"}
       </div>
-      <div>{currentUser ? <p>{currentUser}</p> : <>p</>}</div>
+      <Typography variant="h6">
+        {currentUser ? <p>{currentUser}</p> : <>p</>}
+      </Typography>
       <InputForm
         label="Title"
         color="success"
