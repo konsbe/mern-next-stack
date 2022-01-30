@@ -2,16 +2,14 @@ import axios from "axios";
 // import { LocalStorage } from "node-localstorage";
 
 const API = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "http://localhost:3000/user",
 });
 
-// axios.interceptors.response.use((response) => {
+// axios.interceptors.request.use((request) => {
 //   if (localStorage.getItem("userProfile")) {
-//     response = `Bearer ${
-//       JSON.parse(localStorage.getItem("userProfile")).token
-//     }`;
+//     request = `Bearer ${JSON.parse(localStorage.getItem("userProfile")).token}`;
 //     // req.headers = "asdasdds";
-//     return response;
+//     return request;
 //   }
 // });
 
@@ -44,8 +42,10 @@ const API = axios.create({
 //   })
 // }
 
-export const logIn = (formData) => API.post("/user/login", formData);
-export const signUp = (formData) => API.post("/user/signup", formData);
+export const logIn = (formData) => API.post("/login", formData);
+export const signUp = (formData) => API.post("/signup", formData);
+export const findUser = (formData) => API.get("/", formData);
+
 
 
 

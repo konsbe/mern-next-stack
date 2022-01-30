@@ -7,7 +7,7 @@ const list = [];
 
 export const logInUser = async (req, res) => {
   const { email, password } = req.body;
-
+  console.log(req.body, "!req/bpdy");
   try {
     const existingUser = await User.findOne({ email });
 
@@ -38,26 +38,19 @@ export const logInUser = async (req, res) => {
 
 export const findUser = async (req, res) => {
   const { email } = req.body;
-
+  console.log(email);
   try {
     const existingUsers = await User.find();
 
-    // if (!existingUser)
-    //   return res.status(404).json({ message: "User doesn't exist." });
-
-    // const token = jwt.sign(
-    //   { email: existingUser.email, id: existingUser._id },
-    //   "test",
-    //   { expiresIn: "1h" }
-    // );
-    // console.log(token);
-    // console.log(res);
-    // res.status(200).json(project);
     res.status(200).json(existingUsers);
   } catch (err) {
     // console.log(err);
     res.status(500).json({ message: "Something wen't wrong!!!" });
   }
+};
+export const setUser = async (req, res) => {
+  console.log(req.params, "req/params");
+  console.log(req.body, "req/body");
 };
 
 export const signUpUser = async (req, res) => {

@@ -9,6 +9,7 @@ import Cryptos from "../clientF/components/Cryptos";
 
 import { useDispatch } from "react-redux";
 import { getCryptos } from "../clientF/redux/BlockChain/blockchain.actions";
+import { setUserAction } from "./../clientF/redux/User/user.actions";
 
 import styles from "./styles/Blog.module.scss";
 
@@ -17,7 +18,8 @@ function Blog() {
 
   useEffect(() => {
     dispatch(getCryptos());
-  }, []);
+    dispatch(setUserAction(JSON.parse(localStorage.getItem("userProfile"))));
+  }, [dispatch]);
 
   return (
     <div

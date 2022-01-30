@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import Switch from "@mui/material/Switch";
 import ButtonGroup from "@mui/material/ButtonGroup";
@@ -7,13 +7,32 @@ import FileBase from "react-file-base64";
 import ButtonForm from "./../Form/ButtonForm";
 import InputForm from "./../Form/InputForm";
 import styles from "./../styles/Blog.module.scss";
+import { useDispatch, useSelector } from "react-redux";
+
+// const mapState = ({ user }) => ({
+//   user: user.currentUser,
+// });
 
 function BlogForm() {
+  const [currentUser, setCurrentUser] = useState("");
+  const user = useSelector(async (state) => await state.user.currentUser);
+  useEffect(() => {
+    user
+      .then((res) => {
+        setCurrentUser(res.result.name);
+        console.log(currentUser, "this Current user");
+        // setCurrentUser(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [user]);
+  // console.log(user, "this Current user");
 
   const [postData, setPostData] = useState({
     title: "",
     message: "",
-    author: "My author name",
+    author: "",
     selectedFile: "",
     public: true,
   });
@@ -22,14 +41,15 @@ function BlogForm() {
     setPostData({
       title: "",
       message: "",
-      author: "My author name",
+      author: `${currentUser}`,
       selectedFile: "",
       public: true,
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setPostData({ ...postData, author: `${currentUser}` });
     console.log(postData);
     resetForm();
   };
@@ -44,13 +64,20 @@ function BlogForm() {
         <Switch checked={postData.public} onChange={handleChange} />
         {postData.public ? "Public" : "Private"}
       </div>
+      <div>{currentUser ? <p>{currentUser}</p> : <>p</>}</div>
       <InputForm
         label="Title"
         color="success"
         variant="standard"
         value={postData.title}
         fullWidth
-        onChange={(e) => setPostData({ ...postData, title: e.target.value })}
+        onChange={(e) =>
+          setPostData({
+            ...postData,
+            title: e.target.value,
+            author: currentUser,
+          })
+        }
       />
       <InputForm
         id="outlined-multiline-static"

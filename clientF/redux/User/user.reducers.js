@@ -1,26 +1,27 @@
 import userTypes from "./user.types";
 
 
-// const INITIAL_STATE = {
-//   currentUser: null,
-//   userErr: [],
-//   resetPasswordSuccess: false,
-//   users: [],
-//   user: [],
-// };
+const INITIAL_STATE = {
+  currentUser: null,
+  user: null,
+};
 
-const userReducer = (state = { authData: null }, action) => {
+const userReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case userTypes.AUTH:
       localStorage.setItem("userProfile", JSON.stringify({ ...action?.data }));
       localStorage.getItem("userProfile", JSON.stringify({ ...action?.data }));
       console.log(action?.data, "action data");
-      return { ...state, authData: action?.data,  };
+      return { ...state, currentUser: action?.data };
     case userTypes.SET_USER:
-      // localStorage.setItem("userProfile",   ...action?.data  );
+      // localStorage.setItem("userProfile", JSON.stringify({ ...action?.data }));
       // localStorage.getItem("userProfile", JSON.stringify({ ...action?.data }));
-      console.log(action?.data, "this action reducers");
-    return { ...state, authData: action?.data, };
+      console.log(action?.data, "action data");
+      return {
+        ...state,
+        currentUser: action.payload,
+      };
+
     case userTypes.LOG_OUT_USER:
       localStorage.clear();
       return { ...state, authData: null };

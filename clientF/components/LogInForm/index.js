@@ -48,7 +48,7 @@ function LoginForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    console.log(formData, "login");
     dispatch(logInAction(formData, router));
   };
   return (

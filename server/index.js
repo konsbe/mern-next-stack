@@ -23,7 +23,12 @@ import {
   likeProject,
 } from "./controllers/projects.js";
 
-import { signUpUser, logInUser, findUser } from "./controllers/user.js";
+import {
+  signUpUser,
+  logInUser,
+  findUser,
+  setUser,
+} from "./controllers/user.js";
 
 // import url from "./routes/blockchainR.js";
 import ProjectModel from "./models/projectModel.js";
@@ -77,17 +82,14 @@ nextApp.prepare().then(() => {
 
   app.post("/user/signup", signUpUser);
   app.post("/user/login", logInUser);
-  app.use("/user/finduser", userRoutes);
+
   app.get("/user", async (req, res) => {
     const actualPage = "/user";
-    const number = 2;
-    // console.log(localStorage.getItem("userProfile"));
-    // console.log(req, res);
+
+
+
     try {
-      const projectModels = await User.find();
-      const queryParams = projectModels;
-      res.send(projectModels);
-      // nextApp.render(req, res, actualPage, queryParams, number);
+      nextApp.render(req, res, actualPage);
     } catch (err) {
       res.status(401).json({ message: err.message });
     }

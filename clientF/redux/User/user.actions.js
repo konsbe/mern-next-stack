@@ -17,12 +17,12 @@ export const setUserAction = (formData) => async (dispatch) => {
     const { data } = { ...formData };
     console.log({ ...formData }, "actions-formData");
     console.log(JSON.parse(localStorage.getItem("userProfile")), "actions");
+    dispatch({ type: userTypes.SET_USER, payload: { ...formData } });
     console.log(
       JSON.parse(localStorage.getItem("userProfile")).token,
       "actions"
     );
     console.log(data, "actions");
-    dispatch({ type: userTypes.AUTH, data: formData });
   } catch (error) {
     console.log(error);
   }
@@ -31,6 +31,7 @@ export const setUserAction = (formData) => async (dispatch) => {
 export const logInAction = (formData, router) => async (dispatch) => {
   try {
     const { data } = await api.logIn(formData);
+    console.log(data, "data actions");
     dispatch({ type: userTypes.AUTH, data });
     // console.log(localStorage.getItem("userProfile"), "actions");
     // console.log(

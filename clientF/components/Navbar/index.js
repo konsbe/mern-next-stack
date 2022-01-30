@@ -27,7 +27,7 @@ import { setUserAction } from "../../redux/User/user.actions";
 import useStyles from "./styles";
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
-const ResponsiveAppBar = ({ data }) => {
+const ResponsiveAppBar = () => {
   const classes = useStyles();
   const router = useRouter();
   const dispatch = useDispatch();
@@ -40,15 +40,12 @@ const ResponsiveAppBar = ({ data }) => {
     const token = user?.token;
 
     setUser(JSON.parse(localStorage.getItem("userProfile")));
-    console.log(user, "user!!!");
-    // if (user) {
-    //   const formData = {
-    //     ...JSON.parse(localStorage.getItem("userProfile")).result,
-
-    //     //   password: JSON.parse(localStorage.getItem("userProfile")).result.password,
-    //   };
-    //   dispatch(setUserAction(formData));
-    // }
+    if (user) {
+      console.log("user");
+      dispatch(setUserAction(user));
+    } else {
+      console.log("no user");
+    }
   }, [router]);
 
   // console.log(user, "user");
@@ -142,7 +139,6 @@ const ResponsiveAppBar = ({ data }) => {
       </List>
     </Box>
   );
-  console.log(data, "serverSideprops");
 
   return (
     <AppBar className={styles.navBar} position="sticky">
@@ -286,15 +282,5 @@ const ResponsiveAppBar = ({ data }) => {
     </AppBar>
   );
 };
-
-export async function getServerSideProps() {
-  // Fetch data from external API
-  const res = await fetch(`http://localhost:3000/user/login`);
-  const data = await res.json();
-
-  // Pass data to the page via props
-  return { props: { data } };
-}
-
 
 export default ResponsiveAppBar;
