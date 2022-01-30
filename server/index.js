@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
 import axios from "axios";
+import { LocalStorage } from "node-localstorage";
 // import posts from './routes/posts.js'
 import next from "next";
 
@@ -26,9 +27,10 @@ import { signUpUser, logInUser, findUser } from "./controllers/user.js";
 
 // import url from "./routes/blockchainR.js";
 import ProjectModel from "./models/projectModel.js";
+import User from "./models/userModel.js";
 import projectsRoutes from "./routes/projectsRoutes.js";
 import blockchainRoutes from "./routes/blockchainRoutes.js";
-// import userRoutes from "./routes/userRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 import auth from "./middleware/auth.js";
 
 nextApp.prepare().then(() => {
@@ -75,7 +77,21 @@ nextApp.prepare().then(() => {
 
   app.post("/user/signup", signUpUser);
   app.post("/user/login", logInUser);
-  app.post("/user/finduser", findUser);
+  app.use("/user/finduser", userRoutes);
+  app.get("/user", async (req, res) => {
+    const actualPage = "/user";
+    const number = 2;
+    // console.log(localStorage.getItem("userProfile"));
+    // console.log(req, res);
+    try {
+      const projectModels = await User.find();
+      const queryParams = projectModels;
+      res.send(projectModels);
+      // nextApp.render(req, res, actualPage, queryParams, number);
+    } catch (err) {
+      res.status(401).json({ message: err.message });
+    }
+  });
 
   app.get("*", (req, res) => {
     return handle(req, res); // for all the react stuff
