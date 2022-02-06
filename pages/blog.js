@@ -24,6 +24,7 @@ function Blog() {
   return (
     <div
       // maxWidth="lg"
+      // asdasdas
       className={styles.container}
     >
       <Typography variant="h2" align="center" className={styles.header}>
