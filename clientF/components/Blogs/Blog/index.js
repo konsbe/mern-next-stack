@@ -8,6 +8,8 @@ import {
   Typography,
 } from "@material-ui/core";
 
+import Comment from "../Comment";
+
 import styles from "./../../styles/Blog.module.scss";
 
 const imgLink =
@@ -52,11 +54,10 @@ function Blog() {
         <Grid item>
           <Avatar alt="Remy Sharp" src={imgLink} />
         </Grid>
-        <Grid item xs zeroMinWidth className={styles.comments}>
-          {comm}
-        </Grid>
+        <Grid item xs zeroMinWidth className={styles.comments}></Grid>
       </Grid>
       <Divider variant="fullWidth" style={{ margin: "30px 0" }} />
+      <Comment />
     </Container>
   );
 }
