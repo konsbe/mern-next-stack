@@ -22,7 +22,7 @@ const time = "posted 1 minute ago";
 const title = "1st title";
 
 const auth = "Michael John";
-// asdaasdadsasddas
+
 function Blog() {
   return (
     <Container style={{ padding: "40px 20px" }}>
